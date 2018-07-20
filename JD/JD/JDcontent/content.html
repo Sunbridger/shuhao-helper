@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+			color: #666;
+		}
+		div{
+			display: block;
+		}
+		a{
+			color: #666;
+			text-decoration: none;
+		}
+		h3{
+			display: block;
+		}
+		p{
+			display: block;
+		}
+		ul{
+			display: block;
+			list-style-type: disc;
+		}
+		li{
+			list-style: none;
+		}
+		img{
+			border: 0;
+		}
+		.index{
+			background: #f0f3ef;
+		}
+		.content1_child,.content2_child,.footer_ls{
+			margin: 0 auto;
+			width: 1190px;
+			overflow: hidden;
+		}
+		.mime,.chosen, .masshop, .daily{
+			background: #ccc;
+		}
+		.box{
+			float: left;
+			width: 390px;
+			height: 450px;
+			margin: 0 5px 30px 0;
+			background: #fff;
+		}
+		.box_hd{
+			height: 60px;
+			padding: 0 20px;
+			font-size: 0;
+			line-height: 0;
+		}
+		.box_hd_lk{
+			display: inline-block;
+			position: relative;
+			height: 40px;
+			margin: 8px 0 0;
+		}
+		.box_tit{
+			float: left;
+			font-weight: normal;
+			font-size: 22px;
+			color: #222;
+			line-height: 44px;
+		}
+		.box_hd_arrow{
+			background-position: 0px 0px;
+    		float: left;
+    		position: relative;
+    		width: 23px;
+    		height: 23px;
+    		top: 11px;
+    		left: 4px;
+    		background-image: url('img/12.png')
+		}
+		.box_subit{
+			float: left;
+    		font-size: 14px;
+    		color: #999;
+    		height: 20px;
+    		line-height: 20px;
+    		margin: 12px 0 0 10px;
+		}
+		.top_tab .tab_head{
+			height: 34px;
+    		line-height: 34px;
+    		text-align: center;
+    		background: #f7f7f7
+		}
+		.top_tab
+		.tab_head_item{
+			float: left;
+    		width: 78px;
+		}
+		.top_wrapper{
+			margin: 0 20px;
+		}
+		.top_item_lk{
+			position: relative;
+    		display: block;
+    		height: 108px;
+    		height: 107px;
+		}
+		.top_item_img{
+			float: left;
+    		width: 80px;
+    		height: 80px;
+    		margin-top: 15px;
+		}
+		.top_item_rank{
+			float: left;
+    		width: 30px;
+    		height: 40px;
+    		margin: 36px 0 0 10px;
+    		line-height: 40px;
+    		font-size: 32px;
+    		text-align: center;
+    		font-family: 'impact';
+		}
+		.top_item_rank_1{
+			color: #e74240;
+		}
+		.top_item_rank_2{
+			color: #ed713d;
+		}
+		.top_item_rank_3{
+			color: #feb185;
+		}
+		.top_item_name{
+			display: block;
+    		margin-left: 125px;
+    		padding-top: 40px;
+    		height: 32px;
+    		line-height: 16px;
+    		font-size: 12px;
+    		overflow: hidden;
+    		color: #333;
+		}
+		.daily_slider{
+			position: relative;
+			width: 350px;
+			height: 355px;
+			margin: auto;
+		}
+		.daily_lk{
+			position: relative;
+			display: block;
+			height: 355px;
+		}
+		.daily_img{
+			display: block;
+			width: 350px;
+			height: 128px;
+			margin-bottom: 20px;
+		}
+		.daily_cover{
+			width: 100%;
+			height: 210px;
+			z-index: 1;
+			font-family: 'Microsoft Yahei', sans-serif;
+		}
+		.daily_list{
+			text-align: center;
+			font-size: 0;
+			margin: 0 -8px;
+		}
+		.daily_item{
+			display: block;
+			float: left;
+			width: 105px;
+			height: 105px;
+			margin: 0 8px;
+			background: #fff;
+			overflow: hidden;
+			line-height: 105px;
+		}
+		.daily_title{
+			height: 58px;
+			line-height: 58px;
+			font-size: 18px;
+			text-align: center;
+			color: #222;
+			float: left;
+		}
+		.daily_subtit{
+			font-size: 14px;
+    		height: 36px;
+    		line-height: 18px;
+    		margin: 0 auto 0;
+    		text-align: center;
+    		overflow: hidden;
+    		color: #666;
+    		float: left;
+		}
+		.coupon_inner{
+			position: relative;
+			padding: 0 20px;
+		}
+		.coupon_item:nth-of-type(2){
+			background: #eeefed;
+		}
+		.coupon_item{
+			position: relative;
+			border-radius: 6px;
+			overflow: hidden;
+			background: #f6f6f6;
+		}
+		.coupon_lk{
+			display: block;
+			height: 118px;
+			overflow: hidden;
+		}
+		.coupon_img{
+			float: left;
+			margin: 14px 0 0 10px;
+			width: 70px;
+			height: 70px;
+			padding: 10px;
+			border-radius: 50%;
+			background: #fff;
+			overflow: hidden;
+		}
+		.coupon_more{
+			float: right;
+			height: 100%;
+			line-height: 118px;
+			margin-right: 34px;
+			font-size: 12px;
+			color: #333;
+		}
+		.coupon_more_inner{
+			display: inline-block;
+			width: 1px;
+			line-height: 15px;
+			vertical-align: middle;
+		}
+		.coupon_info{
+			padding-top: 15px;
+			margin: 0 72px 0 110px;
+		}
+		.coupon.price{
+			font-family: 'impact';
+			display: block;
+			height: 38px;
+			line-height: 38px;
+		}
+		.mod_price{
+			font-size: 14px;
+			color: #e33333;
+		}
+		.mod_price i{
+			margin-right: 3px;
+			font-family: arial;
+			font-weight: 400;
+			font-size: 12px;
+		}
+		.coupon_price i{
+			font-size: 16px;
+		}
+		.coupon_price span{
+			font-size: 34px;
+		}
+		.coupon_limit{
+			color: #b1b3b0;
+			font-size: 14px;
+			line-height: 24px;
+			height: 24px;
+		}
+		.coupon_desc{
+			color: #767b77;
+			font-size: 14px;
+			line-height: 24px;
+			height: 24px;
+		}
+		a :hover .coupon_more_inner{
+			color: red;
+		}
+		.mime_slider{
+			position: relative;
+    		width: 350px;
+    		height: 390px;
+    		height: 355px;
+    		margin: 0 auto;
+		}
+		.mime_name{
+			text-align: center;
+			font-size: 16px;
+			color: #333;
+			height: 50px;
+			line-height: 56px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.mime_desc{
+			font-size: 14px;
+			color: #999;
+			height: 40px;
+			line-height: 20px;
+			overflow: hidden;
+		}
+		.chosen_wrapper{
+			margin: 0;
+			padding-top: 10px;
+			overflow: hidden;
+		}
+		.chosen_item{
+			float: left;
+			width: 180px;
+			height: 184px;
+			text-align: center;
+		}
+		.chosen_item_lk{
+			display: block;
+		}
+		.chosen_item_img{
+			width: 110px;
+			height: 110px;
+			margin: 0 auto;
+		}
+		.chosen_item_tit{
+			display: block;
+			font-size: 14px;
+			color: #3e8c96;
+			font-weight: bold;
+			height: 16px;
+			padding: 0 10px;
+			line-height: 16px;
+			margin-top: 20px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.chosen_item_subtit{
+			display: block;
+			font-size: 12px;
+			line-height: 14px;
+			padding: 0 8px;
+			margin-top: 6px;
+			color: #666;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.masshop{
+			margin-right: 0;
+		}
+		.masshop_cover{
+			position: relative;
+			width: 350px;
+			height: 250px;
+			margin: 0 auto;
+		}
+		.masshop_lk{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.masshop_lk_img{
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.masshop_list{
+			width: 360px;
+			overflow: hidden;
+			margin: 10px auto 0;
+		}
+		.masshop_item{
+			float: left;
+			width: 110px;
+			height: 110px;
+			margin: 0 5px;
+		}
+		.masshop_lk{
+			display: block;
+			width: 100%;
+			height: 100%;left: 
+		}
+	</style>
+</head>
+<body class="index">
+<div class="floors">
+	<div class="content1">
+		<div class="content1_child">
+			<div class="box top">
+				<div class="box_hd">
+					<a href="#" class="box_hd_lk">
+						<h3 class="box_tit">排行榜</h3>
+						<i class="box_hd_arrow"></i>
+						<span class="box_subit">专属你的购物指南</span>
+					</a>
+				</div>
+				<div class="box_bd">
+					<div class="top_inner">
+						<div class="tab top_tab">
+							<div class="tab_head">
+								<div class="tab_head_item">
+									<a href="#" style="color:#e33333;">手机通讯</a>
+								</div>
+								<div class="tab_head_item"><a href="#">大 家 电</a></div>
+								<div class="tab_head_item"><a href="#">生活电器</a></div>
+								<div class="tab_head_item"><a href="#">厨房小电</a></div>
+								<div class="tab_head_item"><a href="#">饮料冲调</a></div>
+							</div>
+							<div class="tab_body">
+								<div class="tab_body_item">
+									<div class="slider top_wrapper">
+										<div class="slider_list">
+											<div class="slider_wrapper" style="opacity: 1;width: 1400px;transform: translate3d(0px, 0px, 0px);transition: none;">
+												<div class="slider_item top_list slider_active" style="float: left;width: 350px;">
+													<div class="top_item">
+														<a href="#" class="top_item_lk">
+															<div class="lazyimg lazyimg_loaded top_item_img">
+																<img src="img/001.webp">
+															</div>
+															<span class="top_item_rank top_item_rank_1">1</span>
+															<span class="top_item_name">vivo Y69 全网通 美颜拍照手机 3GB+32GB 磨砂黑 移动联通电信4G手机 双卡双待</span>
+														</a>
+													</div>
+													<div class="top_item">
+														<a href="#" class="top_item_lk">
+															<div class="lazyimg lazyimg_loaded top_item_img">
+																<img src="img/002.webp">
+															</div>
+															<span class="top_item_rank top_item_rank_2">2</span>
+															<span class="top_item_name">小米 红米6 全网通版 3GB内存 流沙金 32GB 移动联通电信4G手机 双卡双待</span>
+														</a>
+													</div>
+													<div class="top_item">
+														<a href="#" class="top_item_lk">
+															<div class="lazyimg lazyimg_loaded top_item_img">
+																<img src="img/003.webp">
+															</div>
+															<span class="top_item_rank top_item_rank_3">3</span>
+															<span class="top_item_name">Apple iPhone 8 (A1863) 64GB 深空灰色 移动联通电信4G手机</span>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box daily">
+				<div class="box_hd">
+					<a href="#" class="box_hd_lk">
+						<h3 class="box_tit">会买专辑</h3>
+						<i class="box_hd_arrow"></i>
+						<span class="box_subit">甄选优质好物</span>
+					</a>
+				</div>
+				<div class="box_bd">
+					<div class="slider daily_slider">
+						<div class="slider_list">
+							<div class="slider_wrapper">
+								<a href="#" class="slider_item daily_lk" style="float: left; width: 350px;">
+									<div class="lazyimg lazyimg_loaded daily_img">
+										<img src="img/004.webp">
+									</div>
+									<div class="daily_cover">
+										<div class="daily_list">
+											<div class="daily_item">
+												<div class="lazyimg lazyimg_loaded daily_item_img">
+													<img src="img/005.jpg!q90">
+												</div>
+											</div>
+											<div class="daily_item">
+												<div class="lazyimg lazyimg_loaded daily_item_img">
+													<img src="img/006.jpg!q90">
+												</div>
+											</div>
+											<div class="daily_item">
+												<div class="lazyimg lazyimg_loaded daily_item_img">
+													<img src="img/007.jpg!q90">
+												</div>
+											</div>
+										</div>
+										<h3 class="daily_title">
+											<span class="daily_title_txt">随心律动，无线耳机挣脱束缚</span>
+										</h3>
+										<div class="daily_subtit">随着人们消费水平的提高，公路上的小车是越来越多了，导致每到上下班高峰期的时候，大路的车辆堵了一环又一环，而且你根本不知道它到底会塞多久，所以我们需要变通一下，不妨骑上电动车来个绿色出行，它够小巧玲珑，即使交通再怎么拥挤，也总有它可以通过的地方。</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box coupon box_last">
+				<div class="box_hd">
+					<a href="#" class="box_hd_lk">
+						<h3 class="box_tit">领券中心</h3>
+						<i class="box_hd_arrow"></i>
+						<span class="box_subit">前往领券中心</span>
+					</a>
+				</div>
+				<div class="box_bd">
+					<div class="coupon_inner">
+									<div class="slider_item coupon_list slider_active" style="float: left; width: 350px;">
+										<div class="coupon_item">
+											<a href="#" class="coupon_lk">
+												<div class="coupon_img">
+													<img src="img/005.webp">
+												</div>
+												<div class="coupon_more">
+													<div class="coupon_more_inner">更多精选好券</div>
+												</div>
+												<div class="coupon_info">
+													<div class="mod_price coupon_price">
+														<i>¥</i>
+														<span>10</span>
+													</div>
+													<div class="coupon_limit">满满100元可用</div>
+													<div class="coupon_desc">购买部分卡西欧钟表商品【神券日】</div>
+												</div>
+											</a>
+										</div>
+										<div class="coupon_item">
+											<a href="#" class="coupon_lk">
+												<div class="coupon_img">
+													<img src="img/006.webp">
+												</div>
+												<div class="coupon_more">
+													<div class="coupon_more_inner">更多精选好券</div>
+												</div>
+												<div class="coupon_info">
+													<div class="mod_price coupon_price">
+														<i>¥</i>
+														<span>100</span>
+													</div>
+													<div class="coupon_limit">满满100元可用</div>
+													<div class="coupon_desc">手机会场</div>
+												</div>
+											</a>
+										</div>
+										<div class="coupon_item">
+											<a href="#" class="coupon_lk">
+												<div class="coupon_img">
+													<img src="img/007.webp">
+												</div>
+												<div class="coupon_more">
+													<div class="coupon_more_inner">更多精选好券</div>
+												</div>
+												<div class="coupon_info">
+													<div class="mod_price coupon_price">
+														<i>¥</i>
+														<span>30</span>
+													</div>
+													<div class="coupon_limit">满满100元可用</div>
+													<div class="coupon_desc">自营牛奶部分商品</div>
+												</div>
+											</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content2">
+		<div class="content2_child">
+			<div class="box mime">
+				<div class="box_hd">
+					<a href="#" class="box_hd_lk">
+						<h3 class="box_tit">觅me</h3>
+						<i class="box_hd_arrow"></i>
+						<span class="box_subit">探索生活</span>
+					</a>
+				</div>
+				<div class="box_bd">
+					<a href="#">
+					<div class="slider mime_slider">
+						<div class="slider_list">
+							<div class="img1">
+								<img src="img/02.webp">
+							</div>
+							<p class="mime_name">日常服装怎么搭，这些技巧要知道</p>
+							<p class="mime_desc">很多大老爷们不懂穿搭，也不愿意学，主要是嫌麻烦。小生这里有几个简单的好方法，能够帮助你合理搭配自己的穿着。只要平时多注意一点，就能摆脱直男的硬审美。这其中最重要的就是统一，简单的两个字，就能够让你的整体look看起来更加和谐。</p>
+						</div>
+					</div>
+				</a>
+				</div>
+			</div>
+			<div class="box chosen">
+				<div class="box_hd"><a href="#" class="box_hd_lk">
+						<h3 class="box_tit">发现好货</h3>
+						<i class="box_hd_arrow"></i>
+						<span class="box_subit">发现品质生活</span>
+					</a></div>
+				<div class="box_bd">
+					<div class="chosen_wrapper">
+						<ul class="chosen_list clearfix">
+							<li class="chosen_item"><a href="#" class="chosen_item_lk">
+								<div class="chosen_item_img">
+									<img src="img/04.webp">
+								</div>
+								<span class="chosen_item_tit">小米8全面屏双摄手机</span>
+								<span class="chosen_item_subtit">该手机搭载双频GPS，可以轻松实现精准定位。后置双1200万AI变焦双摄，暗光逆光拍照更出色。黑科技红外人脸识别，即使全黑环境下也能快速解锁，骁龙845处理器让你随心所欲。</span>
+							</a></li>
+							<li class="chosen_item"><a href="#" class="chosen_item_lk">
+								<div class="chosen_item_img">
+									<img src="img/05.webp">
+								</div>
+								<span class="chosen_item_tit">Midea 豆浆机</span>
+								<span class="chosen_item_subtit">TA颜值与实力兼备，内置高速破壁电机，采用二代双速倍浓生磨系统，还原古法制浆，360°环绕立体加热，还可以做豆腐脑,，元气满满的一天，就从一杯无渣营养豆浆开始吧。</span>
+							</a></li>
+							<li class="chosen_item"><a href="#" class="chosen_item_lk">
+								<div class="chosen_item_img">
+									<img src="img/06.webp">
+								</div>
+								<span class="chosen_item_tit">阿迪达斯系带小白鞋</span>
+								<span class="chosen_item_subtit">阿迪达斯系带小白鞋，采用优质皮面料，质感细腻柔韧，具有好的透气舒适效果，搭配舒适透气鞋垫，持久呵护双脚，简约百搭鞋型，时尚优雅，防滑耐磨大底，让休闲运动更轻松舒适。</span>
+							</a></li>
+							<li class="chosen_item"><a href="#" class="chosen_item_lk">
+								<div class="chosen_item_img">
+									<img src="img/07.webp">
+								</div>
+								<span class="chosen_item_tit">格力 立柜式空调</span>
+								<span class="chosen_item_subtit">采用高光注塑面板，滑动升降门设计，清爽空气一触既得，地毯式制热模式，暖风向下送出，温暖从脚开始，淋浴式制冷模式，冷风水平向上送出，高清LED显示屏，实现精准控温，环境更舒适。</span>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="box masshop">
+				<div class="box_hd">
+					<a href="#" class="box_hd_lk">
+						<h3 class="box_tit">会逛</h3>
+						<i class="box_hd_arrow"></i>
+						<span class="box_subit">你想逛的都在这里</span>
+					</a>
+				</div>
+				<div class="box_bd">
+					<div class="masshop_cover">
+						<a href="#" class="masshop_lk">
+							<div class="masshop_lk_img">
+								<img src="img/08.webp">
+							</div>
+						</a>
+					</div>
+					<div class="masshop_list">
+						<div class="masshop_item">
+							<a href="masshop_lk">
+								<div class="masshop_lk_img">
+									<img src="img/09.webp">
+								</div>
+							</a>
+						</div>
+						<div class="masshop_item">
+							<a href="masshop_lk">
+								<div class="masshop_lk_img">
+									<img src="img/10.webp">
+								</div>
+							</a>
+						</div>
+						<div class="masshop_item">
+							<a href="masshop_lk">
+								<div class="masshop_lk_img">
+									<img src="img/11.webp">
+								</div>
+							</a>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
