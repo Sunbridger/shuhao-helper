@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="jquery-1.7.1.js"></script>
+	<style>
+	
+	.cls{
+		color: red;
+	}
+</style>
+<script>
+ 		$(document).ready(function(){//dom元素加载完毕的事件 能同时编写多个
+ 			console.log("saasd");
+ 		});
+ 		//可简化写成
+ 		$(function(){
+ 			// 获取前6个li 但是不包括最后一个li的 中间的getli
+ 			var getli=$("li:gt(5):not(:last)");
+ 			// console.log(getli);
+ 			getli.hide();
+ 			var abtn=$("div.more>a");
+ 			// 1.jquery传统做法
+ 			// abtn.click(function(){
+ 			// 	if(getli.is(":visible")){
+ 			// 		getli.hide();
+ 			// 		$(this).html("显示全部");
+ 			// 		$("ul a").removeClass("cls");
+ 			// 		return false;
+ 			// 	}
+ 			// 	else{
+ 			// 		getli.show();
+ 			// 		$(this).html("简单格式");
+ 			// 		$("ul a").filter(":contains('01佳能'),:contains('02佳能'),:contains('03佳能')").addClass("cls");
+ 			// 		return false;
+ 			// 	}	
+ 			// });
+ 			// $("li>a").mouseenter(function(){
+ 			// 	$(this).next().addClass("cls");
+ 			// });
+ 			// console.log($("a").next());
+ 			// console.log($("a"));
+ 			// console.log($("a").next() instanceof Array);
+ 			
+ 			//为按钮添加一组交互事件 toggle
+ 			abtn.toggle(function(){
+ 				getli.hide();
+ 				$(this).html("显示全部");
+ 				$("ul a").removeClass("cls");
+ 				return false;
+ 				//显示元素
+ 			},function(){
+ 				getli.show();
+ 				$(this).html("简单格式");
+ 				$("ul a").filter(":contains('01佳能'),:contains('02佳能'),:contains('03佳能')").addClass("cls");
+ 				return false;
+ 				//隐藏元素
+ 			});
+ 			// var ck=document.querySelector("#li1");//等同于下面的
+ 			var ck=document.querySelectorAll("#li1")[0];
+ 			console.log(ck);
+
+ 		});
+ 	</script>
+ </head>
+ <body>
+ 	<ul>
+ 		<li id="li1"><a href="">01佳能</a></li>
+ 		<li><a href="">02佳能</a></li>
+ 		<li><a href="">03佳能</a></li>
+ 		<li><a href="">04佳能</a></li>
+ 		<li><a href="">05佳能</a></li>
+ 		<li><a href="">06佳能</a></li>
+ 		<li><a href="">07佳能</a></li>
+ 		<li><a href="">08佳能</a></li>
+ 		<li><a href="">09佳能</a></li>
+ 		<li><a href="">10佳能</a></li>
+ 		<li><a href="">11佳能</a></li>
+ 		<li><a href="">12佳能</a></li>
+ 	</ul>
+ 	<div class="more">
+ 		<a>显示全部</a>
+ 	</div>
+ </body>
+ </html>

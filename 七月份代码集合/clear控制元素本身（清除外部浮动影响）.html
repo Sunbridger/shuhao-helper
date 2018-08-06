@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>清除浮动</title>
+        <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            border: 1px solid pink;
+            width: 80%;
+            margin: 100px auto;
+        }
+            #div1 {
+                width: 100px;
+                height: 100px;
+                background: lightblue;
+                float: left;
+                /*clear: both;*/  /*div1的右边与左边都不能出现浮动元素  元素盒子的边不能和前面的浮动元素相邻 float是魔鬼，会影响其他相邻元素；但是clear是小白，其只会影响自身，不会对其他相邻元素造成影响！
+                原因在于，clear属性是让自身不能和前面的浮动元素相邻，注意这里“前面的”3个字，而float属性要么就left要么就right，不可能同时存在。由于clear属性对“后面的”浮动元素不闻不问，因此，当clear:left有效的时候，clear:right必定无效，也就是此时clear:left等同于设置clear:both*/
+            }
+            #div2 {
+                width: 200px;
+                height: 200px;
+                background: lightgreen;
+                float: left;
+                clear: both;
+            }
+            #div3{
+                width: 800px;
+                height: 300px;
+                background-color: #ccc;
+                margin-left: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>
+        </div>
+    </body>
+
+</html>

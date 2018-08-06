@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #dv {
+      background-color: red;
+      width: 200px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="button" id="btn">
+  <div id="dv"></div>
+  <script src="common.js"></script>
+  <script>
+    my$("btn").onclick = function () {
+      var width = 200;
+      var timeid = setInterval(
+        function () {
+          width += 50;
+          if (width == 900) {
+            clearInterval(timeid);
+          }
+          my$("dv").style.width = width + "px";
+        }, 100)
+
+    };
+  </script>
+</body>
+
+</html>

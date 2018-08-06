@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		//思考：事件委托 点击事件(mouseenter+mouseover)的一起里应用排他功能和闭包效果？？？？
+		window.onload=function(){
+			ul=document.getElementsByTagName("ul")[0];
+			li1=document.getElementById("li1");
+			li2=document.getElementById("li2");
+			li3=document.getElementById("li3");
+			lis=document.getElementsByTagName("li");
+			// console.log(li1.parentElement.children);
+		
+			// 
+			ul.onclick=function(e){	
+				var t=e.target;
+				if(t.nodeName.toLowerCase() == 'li'){
+					for(var i=0;i<lis.length;i++){
+							//此方法虽然麻烦 但是可操作性更加的自由
+						switch(t.id){
+							case 'li1' :
+							(function(){
+							//这里放入事件函数
+							lis[i].style.color="";
+							t.style.color="red";
+						})();
+						break;
+						case 'li2' :
+						(function(){
+							//这里放入事件函数
+							lis[i].style.color="";
+							t.style.color="red";
+						})();
+						break;
+						case 'li3' :
+						(function(){
+							//这里放入事件函数
+							lis[i].style.color="";
+							t.style.color="red";
+						})();
+						break;
+					}
+				}
+			}
+		};
+	};
+
+
+           // //取巧的做法 直接是利用排他的功能了
+        //    window.onload = function(){
+        //    	ul=document.getElementsByTagName("ul")[0];
+        //     //事件委托，添加的子元素也有事件
+        //     ul.onmouseover = function(ev){
+        //     	var ev = ev || window.event;
+        //     	var target = ev.target || ev.srcElement;
+        //     	if(target.nodeName.toLowerCase() == 'li'){
+        //     		target.style.background = "red";
+        //     	}
+
+        //     };
+        //     ul.onmouseout = function(ev){
+        //     	var ev = ev || window.event;
+        //     	var target = ev.target || ev.srcElement;
+        //     	if(target.nodeName.toLowerCase() == 'li'){
+        //     		target.style.background = "#fff";
+        //     	}
+
+        //     };
+        //     //以后 争取就是用这种方式 利用了t就是目标（被点击或被干嘛的那位）
+    //     //     ul.onclick=function(e){	
+				// var t=e.target;
+				// if(t.nodeName.toLowerCase() == 'li'){
+				// 	for(var i=0;i<lis.length;i++){
+				// 			
+				// 	lis[i].style.color="";//点击按钮加上（分开的步骤就不用加了）
+				// 	t.style.color="red";
+        // }; 
+    </script>
+</head>
+<body>
+	<ul>
+		<p>点我出不来吧</p>
+		<li id="li1">点我出来</li>
+		<li id="li2">点我出来</li>
+		<li id="li3">点我出来</li>
+	</ul>
+</body>
+</html>

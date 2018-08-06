@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function f(){
+			var num=Math.random();
+			function a(va){
+				if(va){
+					num=va;
+					return num;
+				}else{
+					return num;
+					// throw new Error("错啦吧");
+				}
+			}
+			return a;
+		}
+		var aa=f();
+		var aaa=aa();
+		console.log(aaa);
+	</script>
+</body>
+</html>

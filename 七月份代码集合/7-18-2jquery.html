@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+ 	<style>
+ 		div{
+ 			width: 100px;
+ 			height: 200px;
+ 			background-color: #ccc;
+ 		}
+ 	</style>
+</head>
+<body>
+	<button id="btn"></button>
+	<div id="div"></div>
+	<script>
+		$("#btn").click(function(){
+			$("#div").fadeOut()});
+		// 延迟时间的意思就是，你设置的这个动画，在多久以后才开始执行！ 动画时间的意思就是：你设置了这个动画在多久时间之内完成。
+	</script>
+</body>
+</html>

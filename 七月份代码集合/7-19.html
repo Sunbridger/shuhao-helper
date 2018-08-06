@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div>
+		<img src="images/datu01.jpg" alt="" name="as">
+	</div>
+	<script>
+		
+		//此方法背景轮播图方便啊
+		var img=document.getElementsByTagName("img")[0];
+		var arr=[
+		'images/datu01.jpg',
+		'images/datu02.jpg',
+		'images/datu03.jpg'
+		];
+		var timer=null;//对象初始化哈哈
+		var num=0;
+		//设置定时器之前先清理定时器
+		clearInterval(timer);
+		//开启定时器
+		timer=setInterval(carouser,1000);
+		//也可直接通过变量名提升来这样写var timer=setInterval(carouser,1000);
+
+		img.onmouseenter=function(){
+			clearInterval(timer);
+		};
+		img.onmouseleave=function(){
+			clearInterval(timer);
+			timer=setInterval(carouser,1000);//这里是赋值操作
+		};
+
+		function carouser(){
+
+			num++;
+		if(num>arr.length-1){
+			num=0;
+		}  
+		// num%=arr.length;//????取模 最小的一个 如果相同 则等于0哈哈
+		//console.log(num);//num为各个图片数组的索引
+		img.src=arr[num];
+	}
+
+	var hh=document.getElementsByTagName("div")[0].outerHTML;
+	console.log(hh);
+	//<div>
+	//	<img src="images/datu01.jpg" alt="">
+	//</div>
+	var innerhtml=document.getElementsByTagName("div")[0].innerHTML;
+	console.log(innerhtml);
+	//<img src="images/datu01.jpg" alt="">
+	//
+	console.log(document.implementation.hasFeature("HTMLEvents","2.0"));
+	//检验浏览器是否支持dom2级事件 true
+		console.log(document.implementation.hasFeature("UIEvent","3.0"));
+	//检验浏览器是否支持dom3级事件 true
+
+</script>
+</body>
+</html>

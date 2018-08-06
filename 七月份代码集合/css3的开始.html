@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- 
+div {
+    transition: <property> <duration> <timing-function> <delay>;
+                属性名称  周期时间  {运动函数  延迟时间 这两个为可选函数值}
+                所有属性的关键字all 
+                transition: width 1s linear, 
+                height 1s linear,
+                background-color 2s 1s; 属性名 周期时间 延迟时间
+                运动函数（最常用的大概就是我们默认的ease和线性过渡linear）
+
+}
+
+
+	 -->
+	<meta charset="UTF-8">
+	<title>Document</title>
+   <style>
+   *{
+   	margin: 0;
+   	padding: 0;
+   }
+   
+   a{
+   	text-decoration: none;
+   }
+   div{ /*可视窗口*/
+     width: 980px;
+     height: 300px;
+     margin: 100px auto;
+     overflow: hidden;
+   }
+    
+    
+    ul{
+     width: 3920px;
+     height: 300px;
+     background-color: pink;
+     /*opacity: .8; 淡入淡出*/
+     animation: move 10s linear 0s infinite;
+    }
+    @keyframes move {/*必须写的*/
+     0%{margin-left: 0;}
+     33%{margin-left: -980px;}
+    66%{margin-left: -1960px;}
+    100%{margin-left: -3920px;}
+  ul li{
+  list-style: none;
+  float: left;
+  width: 980px;
+  height: 300px;
+  box-sizing: border-box;
+  border: 1px solid red;
+/*  transition: width 1s;*/
+   }
+  li a img{
+  	/*980*300的图片*/
+  	height: 300px;
+  	width: 980px;
+  }
+ /* ul:hover li{
+				width: 100px;
+			}
+  ul li:hover{
+  	width: 220px;
+  }*/
+
+</style>
+</head>
+<body>
+<div>
+	<ul>
+		<li><a href=""><img src="img/images/1.jpg" alt=""></a></li>
+		<li><a href=""><img src="img/images/2.jpg" alt=""></a></li>
+		<li><a href=""><img src="img/images/3.jpg" alt=""></a></li>
+	</ul>
+		<!-- <li><a href=""><img src="img/images/4.jpg" alt=""></a></li>
+		<li><a href=""><img src="img/images/5.jpg" alt=""></a></li>
+		<li><a href=""><img src="img/images/6.jpg" alt=""></a></li>
+	</ul> -->
+</div>
+</body>
+</html>

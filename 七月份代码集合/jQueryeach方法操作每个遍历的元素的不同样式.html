@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+  	$(function(){
+     $("#uu>li").each(function(index,domele){
+  // console.log(arguments[0]+"...."+arguments[1]);第一个是索引 第二个是元素对象
+  var opa = (index+1)/10;
+  $(domele).css("opacity",opa);
+     });
+  	});
+  </script>
+ <style>
+ li{
+ 	list-style: none;
+ 	height: 100px;
+ 	width: 100px;
+ 	float: left;
+ 	background-color: blue;
+ }
+ 	li:nth-child(even){
+ 		background-color: red;
+ 	}
+ </style>
+</head>
+<body>
+<ul id="uu">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

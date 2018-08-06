@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body id="aa">
+	<div id="div">
+		<p id="p"></p>
+	</div>
+	<script>
+		// var div=document.getElementById("div");
+		// var p=document.getElementById("p");
+		// var newdiv=document.createElement("div");
+		// console.log(document.body.firstChild.nodeName);//#text 
+		// console.log(document.body.childNodes);
+		// // 看样子真的是属性节点不属于元素节点的子节点
+		// console.log(document.documentElement);//其实是html节点
+		// // 但是打印出来的是HTML一下包括他自己的所有代码；
+		// var tex=document.createTextNode("你好"+"\n");
+		// p.appendChild(tex);
+		// insertAfter(newdiv,p);
+		// console.log(div.childNodes);
+		//谷歌不承认div元素已经有个子节点 id属性节点嘛？？？
+		// 回答：属性节点已经是不属于某个元素的子节点了
+		//
+		// function insertAfter(newElement,targetElement){
+		// 	var parent=targetElement.parentNode;
+		// 	if(parent.lastChild==targetElement){
+		// 		targetElement.appendChild(newElement);
+		// 	}else{
+		// 		parent.insertBefore(newElement,targetElement.nextSibling);
+		// 	}
+		// }
+		var b=2;
+		function a() {
+			if(b!=2){
+				return;
+			}
+			console.log("s");
+		}
+		a();
+	</script>
+</body>
+</html>

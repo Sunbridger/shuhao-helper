@@ -1,0 +1,143 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dsssocument</title>
+		<style>
+		div{
+			position: absolute;
+			top: 200px;
+			left:200px;
+			width: 200px;
+			height: 200px;
+			border: 2px solid red;
+		}
+		#div2{
+			top: 0px;
+
+		}
+		#div3{
+			left: 600px;
+		}
+		.lei{
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div name="name" id="div" class="haha">  啥十大 </div>
+	<div id="div2" class="haha"> 2 </div>
+	<div id="div3">
+		div3 
+		<p>我是p</p>
+		sa 
+	</div>
+	<button id="btn" type="button">按钮 </button>
+	<script>	
+		var my$=function(id){
+			return document.getElementById(id);
+		};
+
+		var div3=my$("div3");
+		var neww=document.createElement("p");
+		neww.style.height="100px";
+		neww.style.width="100px";
+		neww.style.backgroundColor ='red';
+		
+		neww.innerHTML="<span>hhh表达式</span>";
+		div3.appendChild(neww);
+		neww.classList.add(".lei");
+		// neww.classList.toggle("lei");
+// div3.classList.remove("className1", ....., "classNameN");移除多个类:
+		// get/set/remove Attribute 这三个是最保险的 可自定义也可已有的shuxing
+		// parent.className = " newDiv";  //添加的是已有的类名
+// classList属性的方法有：
+
+// add(class1, class2, ...) 添加类名，如果有则不添加
+// contains(class1, class2, ...) 判断是否存在类名，返回Boolean值
+// remove(class1, class2, ...) 从列表中删除类名
+// toggle(class1, class2, ...) 切换类名：如果列表中存在则删除，否则添加
+    document.body.appendChild(neww.cloneNode(false));
+    // console.log(div3.classList.contains('className'));检查是否含有某个类
+//cloneNode()接收一个参数include_all。include_all为一个布尔值，true表示被clone的节点的所有子节点也会被clone（既深度clone），false(默认)只会clone原节点。
+		//新元素neww被动加入到div3
+		// var ss=neww.remove();//自己主动的全部的删除了 包括自己的所有标签内容 区别于jquery中empty（）的只清空内容啊
+		// var ss=div3.removeChild(neww);//此方法可返回被删除的节点 可通过innerhtml获取其内容
+		// console.log(ss.innerHTML);
+		//被动的删除全部和自己remove一样
+		// div3.append(neww);
+		// appendChild 是JS方法，和jquery append一样 尽量用appendChild原生方法，插入到父节点中最后一个子节点之后。
+		// neww.appendTo(div3);
+// after 、insertafter  这两个的 都是在插入当前元素之后。
+// before 、insertbefore  这两个的 都是在插入当前元素之前。
+		// var btn=my$("btn"),div2=my$("div2"),a=0;
+		// btn.onclick=function(){
+		// 	a++;
+		// 	if(a%2!=0){
+		// 		div2.style.backgroundColor = 'red';
+		// 	}
+		// 	else{
+		// 		div2.style.backgroundColor = '';
+		// 	}
+		// };
+		// 常用的排他功能
+		// var dv=document.getElementsByTagName("div");
+		// var len=dv.length;
+		// for(var i=0;i<len;i++){
+		//  dv[i].onclick=function(){
+		// 	for(var j=0;j<len;j++){
+		// 		dv[j].style.backgroundColor = '';
+		// 	}
+		// 	this.style.backgroundColor = 'skyblue';
+		// };
+		// }
+		// //直接获取元素的几种方式
+		// console.log(document);//#document
+
+		// console.log(document.documentElement);//html
+
+		// console.log(document.body);//body
+
+		// console.log(document.title);//title
+
+		// div3.previousElementSibling.innerHTML="<p>哈哈哈 我又变帅拉<p>";
+		// div3.previousElementSibling.innerHTML="<p>哈哈哈 我又变帅拉<p>";覆盖之前的内容啊
+		//div3.previousElementSibling.innerHTML+="<p>哈哈哈 我又变帅拉<p>";追加内容而不覆盖';
+		// 现如今的浏览器几乎都支持属性innnerHTML 一旦写入innerHTML，全部内容都将被覆盖
+		// innerHTMl属性更合适，它既支持读取innerHTML()又支持写入innerHTML("里面写东西就是改")
+		// div3.previousElementSibling.innerText="哈哈哈 我又变帅拉";
+		// console.log(div3.innerHTML);
+		// console.log(div3.nextSibling+"==="+div3.nextSibling.nodeType);
+		// // #text或（[object Text]===3）  3  说明高版本获取的是 文本节点
+		// console.log(div3.nextElementSibling+"==="+div3.nextElementSibling.nodeType);
+		// //火狐 谷歌等高本版会把换行也看做是子节点
+		// // [object Text]===3  说明高版本（除ie678外） 获取的是程序员可操作的元素的节点 
+		// console.log(div3.parentNode+"==="+div3.parentNode.nodeType);
+		//获取父节点就这一个 不用兼容啊
+		/*
+		
+		获取兄弟和第一个子（Nodetype=1的节点啊）元素节点的 容错代码
+			var div3 = one.nextElementSibling || one.nextSibling;
+			var div3 = one.previousElementSibling || one.previousSibling;
+
+			// var div3 = one.firstElementChild || one.firstChild; 
+			// */
+			// console.log(div3.childNodes);//NodeList(3) [text, p, text]0: text1: p2: textlength: 3__proto__: NodeList
+
+			// console.log(div3.children[0]);//HTMLCollection [p]
+				//这两个返回的是一个类数组
+			/*
+			
+
+    childNodes：它是标准属性，它返回指定元素的子节点集合，包括HTML节点，所有属性，文本节点     （嫡出）
+  	火狐 谷歌等高本版会把换行也看做是子节点
+	 children   重要  选取所有的孩子 （只有元素节点）
+利用  nodeType == 1   时才是元素节点     来获取元素节点
+标签  元素  
+
+      
+*/
+</script>
+
+</body>
+</html>

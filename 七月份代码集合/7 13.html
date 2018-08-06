@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link   href="Bootstrap/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+	<script src="Bootstrap/bootstrap-3.3.7-dist/js/jquery-3.3.1.js"></script>
+	<script src="Bootstrap/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<title>Document</title>
+	<style>
+	#big{
+		margin: 200px auto;
+		width: 600px;
+		height: 600px;
+		position: relative;
+		background:url(images/shizhong/big.jpg);
+	}
+	#hour{
+		width: 30px;
+		height: 600px;
+		background:url(images/shizhong/hour.jpg) no-repeat;
+		position: absolute;
+		left: 285px;
+	}
+	#minute{
+		width: 30px;
+		height: 600px;
+		background:url(images/shizhong/minute.jpg) no-repeat;
+		position: absolute;
+		left: 285px;
+	}
+	#second{
+		width: 30px;
+		height: 600px;
+		background:url(images/shizhong/second.jpg) no-repeat;
+		position: absolute;
+		left: 285px;
+	}
+</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-5">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="">
+						1.哈哈我又变帅了！
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="">
+						2.哈哈我又变帅了！
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="">
+						3.哈哈我又变帅了！
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="">
+						4.哈哈我又变帅了！
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="">
+						5.哈哈我又变帅了！
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="">
+						6.哈哈我又变帅了！
+					</label>
+				</div>
+
+				<div class="btn-group">
+					<button class=" btn-sm btn-success" id="all" type="button">全选</button>
+					<button class=" btn-sm btn-success" id="cancel" type="button">取消</button>
+					<button class=" btn-sm btn-success" id="resverse" type="button">反选</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 时钟 -->
+	<div id="timer" style="width: 200px;height: 200px"></div>
+	<!-- 倒计时类似 -->
+	<div id="ha" style="width: 1200px;height: 200px"></div>
+	<!-- 图片时钟 -->
+	<div id="big">
+		<div id="minute"></div>
+		<div id="hour"></div>
+		
+		<div id="second"></div>
+	</div>
+
+
+
+	<script>
+		//选项卡的功能
+		function my$(id){
+			return document.getElementById(id);
+		}
+		;(function(){
+			var all=my$("all"),cancel=my$("cancel"),resverse=my$("resverse");
+			var inputs=document.getElementsByTagName("input");
+		//全选
+		all.onclick=function(){
+			for(var i=0;i<inputs.length;i++){
+			 // console.log(inputs[i].checked);
+			 inputs[i].checked=true;
+			}
+		};
+		//取消
+		cancel.onclick=function(){
+			for(var i=0;i<inputs.length;i++){
+				inputs[i].checked=false;
+			}
+		};
+		//反选
+		resverse.onclick=function(){
+			for(var i=0;i<inputs.length;i++){
+				inputs[i].checked=!inputs[i].checked;
+			}
+		};
+	})();
+
+
+//实时钟表
+;(function(){
+	var div1=document.getElementById("timer");
+	setInterval(ti, 1000);
+	function ti(){
+		var today=new Date();
+		var h=today.getHours();
+		var m=today.getMinutes();
+		var s=today.getSeconds();
+		function checkTime(i)
+		{
+			if(i<10){
+				i="0" + i;
+			}
+			return i;
+		}
+		M=checkTime(m);
+		S=checkTime(s);
+
+		str=("当前时间是："+h+"时"+M+"分"+S+"秒");
+		div1.innerHTML=str;
+	}
+
+
+})();
+
+//图片时钟
+//
+window.load=function(){
+
+	((function(){
+		setInterval(function(){
+			var big=my$("big"),hour=my$("hour"),minute=my$("minute"),second=my$("second");
+			var date=new Date();
+			var mills=date.getMilliseconds();
+			var h=date.getHours()%12+m/60;
+			var m=date.getMinutes()+s/60;
+			var s=date.getSeconds()+mills/1000;
+			hour.style.transform = 'rotate('+h*30+'edg)';
+			minute.style.transform = 'rotate('+m*6+'edg)';	
+			second.style.transform = 'rotate('+s*6+'edg)';
+		},10);
+
+	})());
+
+};
+
+//倒计时
+;((function(){
+
+	function sun(){
+		var oldday=new Date("1996/02/13 06:02:13");
+// console.log(oldday);
+var nowday=new Date();
+// console.log(nowday);
+var second=parseInt(nowday-oldday);
+// console.log(cha);
+var minute=parseInt(second/60);
+
+var hour=parseInt(minute/60);
+// console.log(nowday-oldday);
+// 将毫秒转换成天
+var day=parseInt((nowday-oldday)/1000/(24*60*60));
+// console.log(day);
+var month=parseInt(day/30);
+// console.log(month);
+var year=parseInt(month/12);
+// console.log(year);
+var str="你已经活了"+year+"年"+month+"个月"+day+"天"+hour+"时"+minute+"分"+second+"秒了！";
+// console.log(str1);
+my$("ha").innerHTML=str;
+}
+setInterval(sun,1000);
+})());
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

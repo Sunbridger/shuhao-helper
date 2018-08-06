@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+  	$(function(){
+$("#d1").delegate("#p1","click",function(){
+	alert("wodaas");
+}) 
+  	});
+  	// 上面是通过父级元素委托来让子级元素绑定一个事件
+  	// 下面是子级元素直接自己绑定一个事件
+  // $(function(){
+  // $("#p1").bind("click",function(){
+  //  alert("wodaas");
+  // });
+  // });
+// $(function(){
+//   $("#d1").on("click","p",function(){
+// alert("wodaas");
+//   });
+// });
+  </script>
+ <style>
+ 	#d1{
+ 		width: 200px;
+ 		height: 200px;
+ 		border: 1px solid red;
+ 	}
+ 	#p1{
+ 		width: 50px;
+ 		height: 50px;
+ 		border: 1px solid pink;
+ 	}
+ </style>
+</head>
+<body>
+<div id="d1">
+	<p id="p1">p0000</p>
+</div>
+</body>
+</html>

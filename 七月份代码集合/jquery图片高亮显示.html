@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+   <script>
+   $(function(){
+     $(".center>li").mouseenter(function(){
+//这个可以一步写0.5数字可不加双引号哦 $(this).css("opacity","1").siblings("li").css("opacity","0.3");
+      $(".center>li").css("opacity",0.5);
+      $(this).css("opacity","1");
+     });
+     $("#box").mouseleave(function(){
+       $(this).find("li").css("opacity","1");
+     });
+   });
+   </script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #box {
+      width: 1000px;
+      height: 400px;
+      margin:150px auto;
+      border: 1px solid #ccc;
+    }
+    img,
+    a {
+      display: block;
+      width: 200px;
+      height: 200px;
+    }
+
+    li {
+      list-style: none;
+      float: left;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+
+    <ul class="center">
+      <li>
+        <a href="#">
+          <img src="images/mtu1.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu2.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu3.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu4.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu5.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu6.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu7.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu8.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu9.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu10.jpg" />
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</body>
+
+</html>

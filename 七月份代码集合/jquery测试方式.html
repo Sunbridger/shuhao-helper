@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+
+</head>
+<body>
+<button>按吧</button>
+<img src="images/datu07.jpg" alt="">
+<img src="images/datu09.jpg" alt="">
+<img src="images/datu08.jpg" alt="">
+<script>
+  $("img").css("position","absolute");
+  $("button:first").css({"position":"absolute","top":"500px"}).click(function(){
+    $("img:first").hide().nextSibling().css("z-index",1);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     *{
+     	margin: 0;
+     	padding: 0;
+     }
+     a,img{
+     	display: block;
+     }
+     div{
+     	width: 1000px;
+     	height: 700px;
+     	border: 1px solid #ccc;
+     	margin:0 auto; 
+     	overflow:hidden;
+     }
+     ul{
+     	width: 400px;
+     	margin:10px auto 0; 
+     	list-style: none;
+     	overflow:hidden;
+     }
+     li{
+     	float: left;
+     }
+     
+ 
+    </style>
+</head>
+<body>
+<div>
+<ul id="imagegallery">
+	<li><a href="img/images/xiaomidatu01.jpg"><img src="img/con2.jpg" alt=""></a></li>
+	<li><a href="img/images/datu02.jpg"><img src="img/con1.jpg" alt=""></a></li>
+	<li><a href="img/images/datu03.jpg"><img src="img/con3.jpg" alt=""></a></li>
+	<li><a href="img/images/datu04.jpg"><img src="img/con4.jpg" alt=""></a></li>
+</ul>
+ 
+
+ <img id="bigimg" src="" alt="">
+
+</div>
+
+<script>
+function my$(id){
+ return	document.getElementById(id);
+}
+</script>
+
+<script>
+var a=document.getElementsByTagName("a");//根据标签名字来获取所有的a元素 TagName
+
+for(var i=0;i<a.length;i++)
+{
+
+a[i].onclick=function()
+   {
+	my$("bigimg").src=this.href;
+	 return false;
+   };
+}
+
+</script>
+</body>
+</html>

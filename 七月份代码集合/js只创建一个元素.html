@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #dv{
+      background-color:red;
+    }
+    </style>
+</head>
+<body>
+    <input id="btn" type="button" value="anniu">
+    <div id="dv"></div>
+    <script>
+    function my$(id){
+        return document.getElementById(id);
+    }
+    </script>
+    <script>
+    my$("btn").onclick=function(){
+    if(!my$("btn2")){
+        var put=document.createElement("input");
+        put.value="anniu";
+        put.id="btn2";
+        my$("dv").appendChild(put);
+    }
+    };
+    </script>
+</body>
+</html>

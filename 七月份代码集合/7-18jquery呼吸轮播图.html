@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.7.1.js"></script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}	
+	a{
+		text-decoration: none;
+		font-size: 100px;
+		color: #ccc;
+	}
+	#carousel{
+		width: 800px;
+		height: 450px;
+		margin: 50px auto;
+		position: relative;
+	}
+	li{
+		list-style: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+	.show{
+		display: block;
+	}
+	#btns{
+		width: 800px;
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	#leftBtn{
+		float: left;
+	}
+
+	#rightBtn{
+		float: right;
+	}
+	#circles{
+		position: absolute;
+		z-index: 2;
+		top: 400px;
+		left: 50%;
+		transform: translate(-50%);
+	}
+	span{
+		font-size: 25px;
+		padding:0 15px;
+		border: 1px solid #ccc;
+		border-radius: 50%;
+	}
+	.current{
+		background-color: red;
+	}
+</style>
+</head>
+<body>
+	<!-- 呼吸轮播图 -->
+	<ul id="carousel">
+
+		<li class="show"><img src="images/datu01.jpg" alt=""></li>
+		<li><img src="images/datu02.jpg" alt=""></li>
+		<li><img src="images/datu03.jpg" alt=""></li>
+		<li><img src="images/datu04.jpg" alt=""></li>
+		
+		<div id="btns">
+			<a id="leftBtn">&lt;</a>
+			<a id="rightBtn">&gt;</a>
+		</div>
+
+		<!-- 小圆点部分 -->
+		<div id="circles">
+			<span class="current">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+		</div>
+	</ul>
+	
+	<script>
+		window.onload=function(){
+			//获取每个标签
+			var list=$("li");
+			var lbtn=$("#leftBtn");
+			var rbtn=$("#rightBtn");
+			var span=$("span");
+			//右边按钮点击事件
+			var idx=0;
+			function moveright(){
+				if(list.is(":animated")){
+					return;//直接退出事件
+				}
+				list.eq(idx).fadeOut(500);//老图走开
+				idx++;
+				if(idx>list.length-1){
+					idx=0;
+				}
+				list.eq(idx).fadeIn(500);
+	span.eq(idx).addClass("current").siblings().removeClass("current");
+			}
+
+	 rbtn.click(moveright);//点击的时候可触发这个函数事件
+	 
+	 			//左边按钮点击事件
+	 			function moveleft(){
+	 		// 		if(list.is(":animated")){
+				// 	return;//直接退出事件
+				// }
+				list.eq(idx).fadeOut(500);//老图走开
+				idx--;
+				if(idx<0){
+					idx=list.length-1;
+				}
+				list.eq(idx).fadeIn(500);
+	span.eq(idx).addClass("current").siblings().removeClass("current");
+			}
+			lbtn.click(moveleft);//点击的时候可触发这个函数事件
+		    var timer=setInterval(moveright,2000);//不点击它自动定时器触发
+
+			$("#carousel").mouseenter(function(){
+				clearInterval(timer);
+			}).mouseleave(function(){
+				clearInterval(timer);
+				timer=setInterval(moveright,2000);
+			});
+
+			//圆点进入事件
+			span.mouseenter(function(){
+				 idx=$(this).index();
+				 list.eq(idx).fadeIn(500).siblings("li").fadeOut(500);
+				 $(this).addClass("current").siblings().removeClass("current");
+			});
+
+		};
+	</script>
+</body>
+</html>

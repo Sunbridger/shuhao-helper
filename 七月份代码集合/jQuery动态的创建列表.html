@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+ <script>
+   var names=["sad","王是","基督教","进口件大事"];
+ $(function(){
+
+$("#btn").click(function(){
+    var uu=$("<ul></ul>").appendTo($("#dv"));
+    var len=names.length;
+    for(i=0;i<len;i++){
+      $("<li>"+names[i]+"</li>").appendTo(uu).mouseenter(function(){
+        $(this).css("color","red");
+
+      }).mouseleave(function(){
+        $(this).css("color",""); 
+      });
+    }
+
+
+});
+
+
+ });
+
+ </script>
+<style>
+div{
+  width: 150px;
+  height: 500px;
+  border: 1px solid rebeccapurple;
+}
+</style>
+</head>
+<body>
+  <button type="button" id="btn">bian</button>
+    <div id="dv">
+    </div>
+</body>
+</html>

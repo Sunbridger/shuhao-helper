@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+   <style>
+    
+  .cls{
+  	width: 500px;
+  	height: 300px;
+  	background-color: pink;
+  	position: absolute;
+  	right: 0;
+  	top: 0;
+  }
+   .cls2{
+   	background-color: black;
+   }
+   </style>
+</head>
+<body>
+	<div class="cls" id="div1"></div>
+	<input type="button" value="显示" name="" id="btn">
+	<input type="button" value="关灯" id="btn2">
+	<script>
+  function my$(id){
+  return document.getElementById(id);
+  }
+	</script>
+	<script>
+     my$("btn").onclick=function(){
+       if(this.value=="显示"){
+         my$("div1").className="cls";
+         this.value="隐藏";
+       }
+       else{
+       	my$("div1").className="";
+       	this.value="显示";
+       }
+     };
+	</script>
+	<script>
+   my$("btn2").onclick=function(){
+   	if(this.value=="关灯"){
+   		document.body.className="cls2";
+   		this.value="开灯";
+   	}
+      else{
+       	document.body.className="";
+       	this.value="关灯";
+       }
+   };
+  
+	</script>
+</body>
+</html>

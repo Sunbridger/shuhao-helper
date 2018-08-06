@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        list-style: none;
+        width: 220px;
+        height: 280px;
+        border: 1px solid red;
+        overflow: hidden;
+        margin: 50px auto;
+        position: relative;
+    }
+    li{
+    position: absolute;
+    }
+    .cls{
+        z-index: 1;
+    }
+</style>
+<body>
+    <div class="side" id="lunbo">
+        <ul id="ul">    
+            <li><img src="img/001.jpg "></li>    
+            <li><img src="img/002.jpg "></li>    
+            <li><img src="img/003.jpg "></li>    
+        </ul>    
+</div> 
+<input type="button" id="btn" value="换图">
+<script>
+        var btn=document.getElementById("btn");
+      var li=document.getElementById('lunbo').getElementsByTagName("li");  
+    for(var i=0;i<li.length;i++)
+    {
+       
+    btn.onclick=function(){
+        li[2].setAttribute('class', 'cls');
+        //  li[2].getclassName="cls";
+         
+
+    }
+        };
+    // var num=0;  
+  //  var len=li.length;  
+//     function show(){  
+//         li[num].style.display="none";  
+//         num=++num==len?0:num;  
+//         li[num].style.display="inline-block";  
+  
+// }
+//     setInterval(show,1000);
+</script> 
+</body>
+</html>

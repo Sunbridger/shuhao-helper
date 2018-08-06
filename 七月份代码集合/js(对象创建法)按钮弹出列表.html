@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    div{
+        width: 100px;
+        height: 500px;
+        background-color:blueviolet;
+    }
+    </style>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+    <div id="dv"></div>
+    <script>
+    function my$(id){
+        return document.getElementById(id);
+    }
+    </script>
+    <script>
+        var kungfu=[1,2,3,"kj"];
+    var btn=my$("btn");
+    btn.onclick=function(){
+        // if(!my$("ul")){
+ var ul=document.createElement("ul");
+my$("dv").appendChild(ul);
+
+for(i=0;i<kungfu.length;i++){
+    var li=document.createElement("li");
+    li.innerHTML=kungfu[i];
+    ul.appendChild(li);//不是匿名函数啊 下面有设置的
+    li.onmouseover=f1;
+    li.onmouseout=f2;
+}
+
+};
+function f1(){
+this.style.color="pink"
+};
+function f2(){
+this.style.color="";
+};
+    </script>
+</body>
+</html>

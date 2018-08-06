@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.progress{
+		width: 1000px;
+		height: 50px;
+		line-height: 40px;
+		margin:100px auto;
+		position: relative;
+	}
+	.progressBar{
+		width: 900px;
+		height: 100%;
+		background-color: #ccc;
+		border-radius: 6px;
+		position: absolute;
+	}
+	.progressBars{
+		width: 0;
+		height: 100%;
+		background-color: blue;
+		position: absolute;
+	}
+	.precent{
+		width: 100px;
+		height: 100%;
+		position: absolute;
+		left: 900px;
+		text-align: center;
+	}
+	span{
+		width: 20px;
+		height: 100%;
+		background-color: red;
+		z-index: 20;
+		position: absolute;
+	}
+</style>
+</head>
+<body>
+	<div class="progress">
+		<div class="progressBar">
+			<span></span>
+			<div class="progressBars"></div>
+		</div>
+		<div class="precent">0%</div>
+	</div>
+	<script>
+	//鼠标按下事件内嵌套一个鼠标移动事件
+	var span=document.getElementsByTagName("span")[0];
+	var progress=document.getElementsByClassName("progress")[0];
+	var progressBars=document.getElementsByClassName("progressBars")[0];
+	var precent=document.getElementsByClassName("precent")[0];
+	progress.onmousedown=function(){
+		document.onmousemove=function(e){
+			var 乔=e.clientX-progress.offsetLeft;
+			if(乔<=0){
+				span.style.left= 0;
+				progressBars.style.width=0;
+			precent.innerHTML=parseInt((parseInt(progressBars.style.width)/900)*100)+"%";
+			}else if(乔>900){
+				span.style.left=900;
+				progressBars.style.width=900;
+			precent.innerHTML=parseInt((parseInt(progressBars.style.width)/900)*100)+"%";
+			}else{
+				span.style.left=乔+"px";
+				progressBars.style.width=乔+"px";
+			precent.innerHTML=parseInt((parseInt(progressBars.style.width)/900)*100)+"%";
+			}	
+		};
+	};
+
+</script>
+</body>
+</html>

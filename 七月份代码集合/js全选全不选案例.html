@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="dv">
+        <label for="">兴趣:</label>
+        <input type="checkbox" name="hobby1">篮球
+        <input type="checkbox" name="hobby2">足球
+        <input type="checkbox" name="hobby3">唱歌
+    </div>
+    <input type="checkbox" id="inputall">
+</body>
+<script>
+    function my$(id) {
+        return document.getElementById(id);
+    }
+
+    var inputs = my$("dv").getElementsByTagName("input");
+
+    // var dv = my$("dv");
+    // var inputs = dv.getElementsByTagName("input");
+    var inputall = my$("inputall");
+    inputall.onclick = function () {
+        for (i = 0; i < inputs.length; i++) {
+            inputs[i].checked = this.checked;
+        }
+    };
+
+
+    for (i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = function () {
+            var flag = true;
+            for (j = 0; j < inputs.length; j++) {
+                if (!inputs[j].checked) {
+                    flag = false;
+                    break;
+                }
+            }
+            inputall.checked = flag;
+        };
+    }
+</script>
+
+</html>

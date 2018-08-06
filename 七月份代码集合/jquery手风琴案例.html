@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    // 页面加载事件哦
+   $(function(){
+      $(".center>li").mouseenter(function(){
+  $(this).animate({width:"800px"},1000);
+  $(this).siblings("li").stop().css("width","50px");  
+      }).mouseleave(function(){
+  $(".center>li").stop().css("width","200px"); 
+});
+//上面为链式编程  
+// $(".center>li").mouseleave(function(){
+//   $(".center>li").css("width","200px"); 
+// });
+
+   });
+  </script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #box {
+      width: 1000px;
+      height: 450px;
+      margin: 150px auto;
+      border: 1px solid #ccc;
+    }
+
+    img,
+    a {
+      display: block;
+      width: 800px;
+      height: 450px;
+    }
+
+    li {
+      width: 200px;
+      list-style: none;
+      float: left;
+      overflow: hidden;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+
+    <ul class="center">
+      <li>
+        <a href="#">
+          <img src="images/datu01.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/datu02.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/datu03.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/datu04.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/datu05.jpg" /> </a>
+      </li>
+    </ul>
+
+  </div>
+</body>
+
+</html>

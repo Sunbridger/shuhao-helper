@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+background-color: red;
+    }
+    .cls{
+        width: 2px;
+        height: 20px;
+        background-color:green;
+    }
+    </style>
+</head>
+<body>
+    <input type="button" name="" id="btn">
+    <div id="dv"></div>
+    <script>
+    function my$(id){
+        return document.getElementById(id);
+    }
+    </script>
+    <script>
+    var btn=my$("btn");
+    var dv=my$("dv");
+    btn.onclick=function(){
+var pobj=document.createElement("p");
+// set.textContent(pobj,"这是一个p");
+// pobj.setAttribute("className","cls");
+pobj.className='cls' ;
+dv.appendChild(pobj);
+    };
+    </script>
+</body>
+</html>

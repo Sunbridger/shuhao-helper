@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+   <script>
+   	$(function(){
+$(document).keydown(function(e){
+     // console.log(e.keyCode);
+     
+switch(e.keyCode){
+	case 49:$("body").css("backgroundColor","red");break;
+	case 50:$("body").css("backgroundColor","pink");break;
+	case 51:$("body").css("backgroundColor","yellow");break;
+	case 52:$("body").css("backgroundColor","black");break;
+	case 53:$("body").css("backgroundColor","blue");break;
+	case 54:$("body").css("backgroundColor","green");break;
+	case 55:$("body").css("backgroundColor","hotpink");break;
+}
+
+});
+   	});
+   </script>
+</head>
+<body>
+
+</body>
+</html>

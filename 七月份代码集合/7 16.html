@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包实例：选项卡(为每个循环添加事件)</title>
+</head>
+<body>
+	<input type="button" id="btn1">
+	<button>选项1</button>
+	<button>选项2</button>
+	<button>选项3</button>
+	<button>选项4</button>
+	<br>
+	<br>
+	<lable>成绩</lable>
+	<input type="text" placeholder="请输入成绩">
+	<script>
+		//深拷贝
+		function deepCopy(){
+	//创建一个对象
+	var temp={};
+	//拷贝属性 如果是引用类型则需要深拷贝
+	for(var k in this){
+		if(this[k]==='object'){
+			temp[k]=this[k].deepCopy();
+		}
+		else{
+			temp[k]=this[k];
+		}
+	}
+	return temp;
+}
+
+
+var car={name:"法拉利"};
+var sun={
+	name:"乔",
+	age:20,
+	car:car
+};
+//让所有的对象有deepcCopy的方法
+car.deepCopy=deepCopy;
+sun.deepCopy=deepCopy;
+var newsun=sun.deepCopy();
+console.log(newsun);
+
+sun.name="打开";
+sun.car.name="溜拉";
+		// 1.方法
+		// var btns=document.getElementsByTagName("button");
+		// for(var i=0;i<btns.length;i++){
+		// 	(function(num){
+		// 		btns[num].onclick=function(){
+		// 			console.log(num+1);
+		// 		};
+		// 	})(i);}
+		// var btns=document.getElementsByTagName("button");
+		// for(var i=0;i<btns.length;i++){
+		// 	btns[i].num=i;			
+		// 	btns[i].onclick=function(){
+		// 		// +排他功能
+		// 		for(var j=0;j<btns.length;j++){
+		// 			btns[j].style.color ="";
+		// 		}
+		// 		this.style.color = 'red';
+		// 		console.log(this.num+1);
+
+		// 	};
+		// }
+		
+		// function f(){
+		// 	var a=9;
+		// 	function ff(){
+		// 		a++;
+		// 		console.log(a);
+		// 	}
+		// 	s=ff;
+		// 	// return ff;
+		// 	// return [ff1,ff2]//返回多个函数
+		// }
+		// console.log(f);//是整个的函数啊
+		// f();
+		// s();
+		// s();
+		// f();
+// 		// s();
+// 		// s();
+// 		// var fff=f();
+// 		// fff();//10
+// 		// fff();//11
+
+// function fn(){
+// 	console.log("sda");
+// }
+// fn();
+// console.log(fn);
+// function f(){
+// 	var arr=[];
+// 	for(var i=0;i<10;i++){
+// 		arr[i]=(function(num){
+// 			return num;
+// 		})(i);
+// 	}
+// 	return arr;
+// }
+// var ff=f();
+// console.log(ff);
+
+// document.getElementById("btn1").onclick=function(e){
+// 	console.log(event.clientX+"===="+event.pageX);
+// 	console.log(event.clientX+"===="+event.pageX);
+// 	console.log(event.offsetX+"===="+event.offsetX);
+// };
+//表单验证
+var input=document.getElementsByTagName("input")[1];
+
+input.onblur=function(){
+var tex=parseInt(input.value);//可自动获取到当前离开焦点的value值
+	console.log(tex.length);
+if(tex==""){
+	console.log("错啦");
+}else if(isNaN(tex)){
+	console.log("错啦");
+}else if(tex>=0&&tex<=100){
+	console.log("对啦");
+}
+else{
+	console.log("错误");
+}
+
+};
+</script>	
+
+</body>
+</html>
