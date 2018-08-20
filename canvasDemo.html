@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>炫彩小球</title>
+</head>
+<body>
+	<canvas style='background:black'></canvas>
+	<script>
+		var mycan=document.querySelector('canvas');
+		mycan.width=1500;
+		mycan.height=1000;
+		var ctx=mycan.getContext('2d');
+		//创建小球的构造函数
+		var ballArr=[];
+		function Ball(x,y){
+			this.x=x;//圆心 x y 通过鼠标的client获取哦
+			this.y=y;
+			this.r='30';
+			this.dx=Math.random()*8;//x 变化的值
+			this.dy=Math.random()*8;//y 变化的值
+this.color='rgb('+Math.random()*256+','+Math.random()*256+','+Math.random()*256+')';	
+			ballArr.push(this);//所有的球都装在ballArr中
+		}
+		Ball.prototype.update=function(){
+			this.x += this.dx;
+			this.y += this.dy;
+			this.r --;
+			if(this.r<0){
+			this.godie();
+			}
+		};
+		Ball.prototype.godie=function(){
+			for(var i=0;i<ballArr.length;i++){
+				if(ballArr[i]==this){
+					ballArr.splice(i,1);//删除this
+				}
+			}
+		};
+		Ball.prototype.render=function(){
+			ctx.beginPath();
+			ctx.arc(this.x,this.y,this.r,0,2*Math.PI,true);
+			ctx.closePath();
+			ctx.fillStyle=this.color;
+        	ctx.fill();
+		};
+		setInterval(function(){
+			ctx.clearRect(0,0,1500,1000);//整个的画布删掉
+			for(var i=0;i<ballArr.length;i++){
+				ballArr[i].update();
+				ballArr[i]&&ballArr[i].render();//渲染出所有的小球
+			}
+		},20);
+		mycan.onmousemove=function(e){
+			new Ball(e.clientX,e.clientY);
+		};
+	</script>
+</body>
+</html>
