@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="jquery-1.12.1.js"></script>
+	<script>
+		$(function(){
+			$(window).scroll(function(){
+				if($(this).scrollTop()>=$("#d1").height()){
+					$("#d2").css("position","fixed");
+					$("#d2").css("top",0);
+					$("#d3").css("margin-top",$("#d2").height());
+				}
+				else{
+					$("#d2").css("position","static");
+					$("#d3").css("margin-top",0);
+				}
+			});
+
+		});
+	</script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div{
+		width: 100px;
+		height: 1000px;
+		background-color: red;
+	}
+	#d2{
+		background-color: pink;
+
+    height: 100px;
+	}
+	#d3{
+		background-color: blue;
+	}
+</style>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    $(function () {
+      $("#box>ul>li>ul").hide();
+      $("#box>ul>li").click(function () {
+        $("#box>ul>li>ul").hide(500);
+        $(this).children("ul").show(500);
+
+      });
+    });
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    #box {
+      width: 100px;
+      margin: 100px auto;
+      border: 1px solid rosybrown;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul>
+      <li>名字
+        <ul>
+          <li>大傻子</li>
+          <li>二狗子</li>
+          <li>傻蛋哦</li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li>号码
+        <ul>
+          <li>大打傻子</li>
+          <li>二狗打子</li>
+          <li>傻是蛋哦</li>
+        </ul>
+      </li>
+    </ul>
+    <ul>
+      <li>地方吗
+        <ul>
+          <li>大傻外子</li>
+          <li>二十大狗子</li>
+          <li>傻蛋耍哦</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

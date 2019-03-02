@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css变换</title>
+<style>
+/*div{
+
+	
+}*/
+#box{
+
+position: relative;
+width: 960px;height: 700px;
+margin:10px 300px; 
+/*上面的数据设置了一个 盒子  的大小*/
+background-image: url(image/sun.jpg);	
+background-repeat: no-repeat;
+/*背景图片是否重复  浏览器默认是重复的*/
+/*背景图片 repeat-x 背景图片只在水平方向重复*/
+background-position: center;
+/*背景图片的位置放置*/
+/*-webkit-background-size: 960px 700px;*/
+background-size: 480px 350px;
+/*设置了背景的大小*/
+background-color: pink;
+transition: /*transform */14s;
+font-size:80px;
+/*margin: 0 auto;*/
+text-align: center;
+line-height:700px;
+/*行高必须和盒子的高度一致 字体才会显示在盒子的正正中间*/
+color: red;
+border-radius: 1em;
+/*border-width:50px; 
+border-color: blue;*/
+/*边框的圆角*/
+}
+#box:hover{
+	transform: rotate(360deg);
+	background-color: red;
+	color: pink;
+	/*-webkit-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	-ms-transform:rotate(45deg);*/
+}
+
+/*设置边栏效果开始啦*/
+#sidebar{
+
+width: 200px;
+height: 800px;
+position:absolute;
+background-color: blue;
+margin: 0 10px 10px 470px;
+}
+/*#divflash
+{
+width:100px;
+height:100px;
+background:red;
+animation:myfirst 5s;
+-moz-animation:myfirst 5s; /* Firefox */
+/*-webkit-animation:myfirst 5s;  Safari and Chrome */
+/*-o-animation:myfirst 5s;*/ /* Opera */
+/*}*/
+
+
+/*@keyframes myfirst
+{
+from {background:red;}
+to {background:yellow;}
+}*/
+</style>
+
+</head>
+<body bgcolor='#6C6C6C'>
+	<!-- bgcolor=''或“” 设置整个页面的背景颜色 -->
+	<div id="box">
+这是一封给你的情书
+	</div>
+<div id="divflash"></div>
+
+	<!-- <div id="sidebar">
+		这是一个边栏sidebar
+	</div> --> -->
+</body>
+</html>

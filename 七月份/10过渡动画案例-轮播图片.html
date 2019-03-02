@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>10动画案例1</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			html{background-color: #f7f7f7;}
+			ul{
+				width: 720px;
+				height: 320px;
+				background-color: #ccc;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			ul li{
+				list-style: none;
+				width: 120px;
+				height: 320px;
+				box-sizing: border-box;
+				border: 1px solid #000;
+				float: left;
+				transition: width 1s;
+			}
+			ul li img{
+				height: 320px;
+			}
+			ul:hover li{
+				width: 100px;
+			}
+			/*以此来覆盖掉上面的那个li 即被hover的li是220px*/
+			ul li:hover{
+				width: 220px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img src="images/mtu1.jpg"></li>
+			<li><img src="images/mtu2.jpg"></li>
+			<li><img src="images/mtu3.jpg"></li>
+			<li><img src="images/mtu4.jpg"></li>
+			<li><img src="images/mtu5.jpg"></li>
+			<li><img src="images/mtu6.jpg"></li>
+		</ul>
+	</body>
+</html>

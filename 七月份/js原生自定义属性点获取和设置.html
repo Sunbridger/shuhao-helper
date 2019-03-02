@@ -1,0 +1,69 @@
+<!doctype html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Document</title>  
+<style>
+/*   .cls{
+color: red;
+   } */
+.class1{  
+width:50px;  
+background-color:red;  
+height:40px;  
+}  
+.class2{  
+width:100px;  
+height:200px;  
+background-color:pink; 
+}  
+.class3{  
+width:20px;  
+height:50px;  
+background-color:green;  
+} 
+</style>
+    </head>  
+<body>  
+<!-- <div  id="inp" value="123" abc="abc"> 爱仕达多</div>  
+<br> -->
+
+
+<div id="test1">ads</div> 
+
+<div id="test2">ads</div> 
+
+<div id="test3">ads</div> 
+
+<script>  
+    // js添加class类名的方法
+// document.getElementById('test1').setAttribute('class','class1') ; 兼容性  ie7及ie7以下版本不支持 
+// document.getElementById('test2').setAttribute('className','class2') ;兼容性:恰好和el.setAttribute('class','class1')相反，不兼容ie7+ /Firefox/Safari/Chrome/Opera 兼容ie7及ie7以下版本
+document.getElementById('test3').className='class3' ; 
+// 都兼容
+</script> 
+
+
+
+<!-- <script>   -->
+   <!--  //获取对象  
+    var txt = document.getElementById("inp");  
+//    console.log(txt.abc);//JS通过.的方式不能获取自定义的属性  
+//   1、 但是可以通过getattribute可以获取到  
+    console.log(txt.getAttribute("abc"));  
+    console.log(txt.getAttribute("id"));  
+    console.log(txt.getAttribute("class"));  
+    console.log(txt.getAttribute("value"));  
+//    显示结果依次为：abc   inp   inp  123  
+  
+//    2、setattribute设置自定义属性,可以在浏览器中通过开发人员工具可以查看属性以及设置到input标签上  
+    txt.setAttribute("class","cls");  
+    // 设置一个新属性
+txt.className=""
+  
+//    3、removeAttribute移除自定义属性和特定属性,同样在开发人员工具可以查看属性abc已经被移除掉了  
+    txt.removeAttribute("abc"); 
+    // txt.className("cls");  -->
+<!-- </script>   -->
+</body>  
+</html>  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.cls1{
+		background-color: red;
+		width: 100px;
+		height: 100px;
+	}
+	.cls2{
+		background-color: pink;
+		width: 200px;
+		height: 200px;
+	}
+</style>
+</head>
+<body>
+	<div id="dv" class="cls1">asda</div>
+
+	<script>
+	
+		var div=document.getElementById("dv");
+		console.log(div.hasChildNodes());
+		// var frames=[
+		// {opacity :1},
+		// {opacity :0}
+		// ];
+		// var opt={
+		// 	duration:1000,
+		// 	iterations: Infinity,
+		// 	easing:"ease-in-out",
+		// 	endDelay:1000
+		// };
+  // //element.animate(keyframes, options);
+  // // 或者简单只动画时间element.animate(keyframes, 动画时间) 其实options包括延迟时间duration的
+  // div.animate(frames,opt);
+		//var div=document.getElementById("dv");
+		// div.classList.add("cls1");
+		// console.log(div.classList.contains("cls"));
+		// div.classList.remove("cls");
+		// div.classList.toggle("cls2");
+		// div.className="cls2";
+		//div.setAttribute("class","cls2");//行内看属性
+		//console.log(div.getAttribute("ss"));//获取属性
+		//div.removeAttribute("class"); //class才是元素的属性 其值为 cls2
+	</script>
+</body>
+</html>

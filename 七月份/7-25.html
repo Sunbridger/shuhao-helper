@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="d" class="dd"></div>
+	<script>
+		
+		var A={
+			getId:function(id){
+				return document.getElementById(id);	
+			},
+			getClass:function(className){
+				return document.getElementsByClassName(className);
+			},
+			getTag:function(tag){
+				return document.getElementsByTagName(tag);
+			}
+		};
+		//如果是函数式的对象封装的话 就是要在函数里面判断 根据判断 return 函数内各个函数
+		//上下面的写法都是正确的！
+		var B={
+			getId(id){
+				return document.getElementById(id);	
+			},
+			getClass(className){
+				return document.getElementsByClassName(className);
+			},
+			getTag(tag){
+				return document.getElementsByTagName(tag);
+			}
+		};
+
+	</script>
+</body>
+</html>

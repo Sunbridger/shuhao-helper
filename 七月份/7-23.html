@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>帅帅乔</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		background-color: rgba(10, 120, 10, 0.5);
+	}
+	.box{
+		width: 415px;
+		height: 42px;
+		margin: 200px auto;
+		background-color: #fff;
+		position: relative;
+	}
+	ul{
+		list-style: none;
+		position: relative
+	}
+	li{
+		float: left;
+		width: 83px;
+		height: 42px;
+		text-align: center;
+		line-height: 42px;
+		cursor: pointer;
+	}
+	span{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 83px;
+		height: 42px;
+		background:rgba(24,24,204,0.4);
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+		<span></span>
+		<ul>
+			<li>菜单栏1</li>
+			<li>菜单栏2</li>
+			<li>菜单栏3</li>
+			<li>菜单栏4</li>
+			<li>菜单栏5</li>
+		</ul>
+	</div>
+	<script>
+		window.onload = function(){
+    //鼠标移动到li标签上后云彩移动到当前的li的位置
+    //鼠标如果离开li标签以后，云彩就会移动到上一次的云彩的位置
+    //鼠标点击li标签，云彩就停留到这个li标签的位置
+
+    //获取云彩
+    var cloud=document.getElementsByTagName("span")[0];
+    //获取ul中的所有的li
+    var lis=document.getElementsByTagName("li");
+    //记录点击时候的距离啊
+    var last=0;
+    for(var i=0;i<lis.length;i++){
+    	lis[i].onmouseover=mouseoverHandle;
+    	lis[i].onmouseout=mouseoutHandle;
+    	lis[i].onclick=clickHandle;
+    }
+    
+    function mouseoverHandle(){
+        //让云彩的left移动到li的当前位置
+        animate(cloud,this.offsetLeft);
+    }
+    function clickHandle(){
+    	//让云彩的left移动到li的当前位置
+    	//并且记录下此时的距离
+    	animate(cloud,this.offsetLeft);
+    	last=this.offsetLeft;
+    }
+    function mouseoutHandle(){
+    	animate(cloud,last);
+    }
+// 封装匀速动画函数
+function animate(element,target){
+	clearInterval(element.timer);//老规矩 欲表先清 
+	element.timer=setInterval(function(){//定时器以对象属性方式来存着
+		var current=element.offsetLeft;//要移动的元素距离最近定位祖宗元素的Left距离
+		var step=10;//每次走的步数(长度px)
+		step= target>current?step:-step;//判断是否是往前走还是往后走啊
+		current += 	step;
+		if(Math.abs(current-target)>Math.abs(step)){
+			element.style.left=current+"px";
+    		//判断是否够一步 如果不够一步就按程序一步步来	
+    	} else{
+    			clearInterval(element.timer);//否则小于一步10px的话就直接到达目的地
+    			element.style.left=target+"px";
+    		}
+    	},20);//每20ms执行一次
+}
+
+
+
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="jquery-1.7.1.js"></script>
+	<style>
+	ul{
+		overflow: hidden;
+	}
+	li{
+		list-style: none;
+		float: left;
+		margin: 10px;
+		background-color: #ccc;
+	}
+	div{
+		width: 200px;
+		height: 100px;
+	}
+	.menu-box>div:nth-child(2n){
+		background-color: pink;
+	}
+	
+</style>
+<script>
+	$(function(){
+		$("input:first").blur(function(){
+			var tex=this.value;
+			if(tex===""||tex.length<6){
+				$("body span").remove();
+				var err="请输入至少六位用户名。";
+				$("body").append("<span>"+err+"</span>");
+			}else{
+				$("body span").remove();
+				var err1="输入正确。";
+				$("body").append("<span>"+err1+"</span>");
+			}
+		}).keyup(function(){
+			$(this).triggerHandler("blur");
+		}).focus(function(){
+			$(this).triggerHandler("blur");
+		});
+		$("button:first").click(function(){
+			var thissize=parseInt(($("p:first").css("font-size")),10);
+			var newsize=(thissize+5)+"px";
+			$("p:first").css("font-size",newsize);
+		});
+		$("button:last").click(function(){
+			var thissize=parseInt(($("p:first").css("font-size")),10);
+			var newwsize=(thissize-5)+"px";
+			$("p:first").css("font-size",newwsize);
+		});
+
+
+			//获取当前点击的li的索引
+			// $("li").click(function(){
+			// 	// var thisindex=$("li").index(this);
+			// 	var thisindex = $(this).index();
+			// 	console.log(thisindex);
+			// });
+
+			//选项卡
+	$(".menu-box>div").hide();
+	$(".menu>li").click(function(){
+		var ind=$(this).index();
+		$(".menu-box>div").eq(ind).show(500).siblings().hide(500);
+	});			
+
+
+		});
+
+	</script>
+</head>
+<body>
+	<lable>用户名</lable>
+	<input type="text">
+	<button>放大</button>
+	<button>放小</button>
+	<p>
+		字体的放大放小
+		字体的放大放小
+		字体的放大放小
+		字体的放大放小
+	</p>
+	<ul class="menu">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+	<div class="menu-box">
+		<div>这是1的内容</div>
+		<div>这是2的内容</div>
+		<div>这是3的内容</div>
+		<div>这是4的内容</div>
+	</div>
+</body>
+</html>
