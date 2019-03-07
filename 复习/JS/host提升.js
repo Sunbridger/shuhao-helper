@@ -23,7 +23,6 @@ console.log(log2);
 setTimeout(() => {
   console.log('定时器啊');
 }, 0);
-
 new Promise(resolve=>{
   console.log('resolve');
   resolve('asdasdas')
