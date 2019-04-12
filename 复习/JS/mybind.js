@@ -10,7 +10,7 @@ function mybind (context) {
     if (this instanceof F) {
       return new _this(...args, ...arguments)
     }
-    return _this.apply(context, args.concat(...arguments))
+    return _this.apply(context, args.concat(...arguments));
   }
 }
 
