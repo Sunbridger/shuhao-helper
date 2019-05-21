@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>	cun</title>
-</head>
-<body>
-	<script>	
+
 /**
  * @desc 优先使用 indexedDB，在浏览器不支持indexedDB的时候使用 websql，再使用 localStorage
  *  再使用 sessionStorage， 再使用 cookie(假设存在上述情况)
@@ -72,7 +65,3 @@ setData('userData', { name : '大搜车'}).then(data => {
 }).then(data => {
     console.log(data); // 输出 '大搜车'
 });
-
-	</script>
-</body>
-</html>
