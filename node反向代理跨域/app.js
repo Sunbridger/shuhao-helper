@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var http=require("http");
 var express=require("express");//引入express
 var app=new express();//或者直接express()
