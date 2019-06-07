@@ -1,6 +1,6 @@
+import axios from 'axios';
 export default {
-    a:()=>{
-        console.log(999);
-        return 87
+    getData:()=>{
+        return axios.get('https://www.v2ex.com/api/topics/latest.json').then(arr=>arr.data);//
     }
 }
