@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+  $(function(){
+ $("#btn").click(function(){
+    $("li:last").hide(1000, function f1(){
+      $(this).prev().hide(1000,f1);
+    });
+ });
+  });
+  </script>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  li,a,img{
+    width: 200px;
+    display:block;
+    float: left;
+  }
+  </style>
+</head>
+<body>
+<button type="button" id="btn">
+  走你呀!
+</button>
+<br>
+<br>
+<br>
+  <div id="box">
+
+    <ul class="center">
+      <li>
+        <a href="#">
+          <img src="images/mtu1.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu2.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu3.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu4.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu5.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu6.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu7.jpg" /> </a>
+      </li>
+      <li>
+          <a href="#">
+            <img src="images/mtu5.jpg" /> </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/mtu6.jpg" /> </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="images/mtu7.jpg" /> </a>
+        </li>
+  
+    </ul>
+  </div>
+</body>
+
+</html>

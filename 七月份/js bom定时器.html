@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        
+        border: 1px solid red;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <input type="button" value="动起来吧" id="btn">
+    <input type="button" value="stop"  id="btn2">
+    <div id="dv">
+        <img src="img/001.jpg" alt="">
+        <img src="img/003.jpg" alt="">
+    </div>
+    <script>
+        function my$(id) {
+            return document.getElementById(id);
+        }
+    </script>
+    <script>
+        var tt=0;
+          my$("btn").onclick = function () {
+        tt=setInterval(
+            function(){
+                var x = parseInt(Math.random() * 500);
+                var y = parseInt(Math.random() * 500);
+                my$("dv").style.left = x + "px";
+                my$("dv").style.top = y + "px";
+
+           } , 100);}
+           my$("btn2").onclick=function(){
+            // my$("dv").style.left = 0 + "px";
+            //     my$("dv").style.top = 50+"px"
+               clearInterval(tt);
+           };
+    </script>
+</body>
+
+</html>

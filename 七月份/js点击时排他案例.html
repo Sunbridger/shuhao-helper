@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="没怀孕">
+	<input type="button" value="没怀孕">
+	<input type="button" value="没怀孕">
+	<input type="button" value="没怀孕">
+	<input type="button" value="没怀孕">
+	<input type="button" value="没怀孕">
+	<input type="button" value="没怀孕">
+   <script>
+  var inputs = document.getElementsByTagName("input");
+     
+     for(var i = 0;i<inputs.height;i++)
+{
+     	inputs[i].onclick = function()
+     	{
+     		for(var j = 0;j<inputs.height;j++)
+     		{
+     	inputs[j].value = "没怀孕";
+         }
+         this.value = "怀孕了";
+        };
+ }
+ 
+   </script>
+</body>
+</html>

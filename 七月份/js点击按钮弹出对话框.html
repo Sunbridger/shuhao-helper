@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+   
+    botton{
+    	width: 50px;
+    	height: 30px;
+    	margin: 100px auto;
+    	border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+   <botton type="submit" id="btn">提交</botton>
+<!-- 先有按钮 才能获取 获取之后才能能注册事件
+  或者
+  var btnObj=document.getElementById("btn")
+       btnObj.onclick=function(){
+        alert('我又变帅了');
+     };
+ -->
+	<script>
+     document.getElementById("btn").onclick=function(){
+     	alert('我又变帅了');
+     };
+	</script>
+</body>
+</html>

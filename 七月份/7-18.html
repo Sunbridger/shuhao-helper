@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.big-box{
+		padding: 0;
+		width: 650px;
+		height: 600px;
+		margin: 50px auto;
+		/*background-color: #ccc;*/
+	}
+	.content{
+		padding: 0;
+		margin: 0 auto ;
+		display: block;
+		width: 600px;
+		height: 100px;
+		resize : none ;
+		background-color: pink;
+	}
+	.show{
+		padding: 0;
+		margin: 0 auto;
+		height: 400px;
+		background-color: #ccc;
+	}
+	.btn{
+		display: block;
+		margin:5px auto;
+	}
+	.clsLi{
+		padding: 0;
+		margin: 0 auto;
+		list-style: none;
+		width: 600px;
+		height: 50px;
+		line-height: 50px;
+	}
+	.clsBtn{
+		padding: 0;
+		float: right;
+		margin-top: 13px;
+	}
+</style>
+<script>
+	window.onload=function(){
+		function myTag(tagname){
+			return document.getElementsByTagName(tagname);
+		}
+		var textarea=myTag("textarea")[0];
+
+		var btn=myTag("button")[0];
+
+		var ul=myTag("ul")[0];
+
+		btn.onclick=function(){
+			var tex=textarea.value;
+			// console.log(tex);
+			if(tex.length===0){
+				alert("不能为空啊");
+			}
+			else{
+				textarea.value="";
+				var newli=document.createElement("li");
+				var newbtn=document.createElement("button");
+				newli.className="clsLi";
+				newli.innerHTML=tex;
+				newbtn.innerHTML="删除";
+				newbtn.className="clsBtn";
+				ul.insertBefore(newli,ul.children[0]);
+				newli.appendChild(newbtn);
+				newbtn.onclick=function(){
+				// console.log(newbtn.parentElement);
+				newbtn.parentElement.remove("li");
+			};
+		}
+};
+
+// 测试onchange（）
+// // 定义和用法
+// onchange 事件会在文本域的内容改变时发生。
+// onchange 事件也可用于单选框与复选框改变后触发的事件。
+document.getElementById("input").onchange=function(){
+	console.log(this.value);//实时获取到input框内的文本内容
+};
+
+	};
+ </script>
+</head>
+<body>
+	<div class="big-box">
+		<textarea class="content" rows="6" cols="6"></textarea>
+		<button class="btn">评论</button>
+		<hr>
+		<ul class="show">
+			
+		</ul>
+	</div>
+<!-- 测试onchange（）事件 -->
+
+	<!-- onchange 属性可以使用于： <input>, <select>, 和 <textarea>。 -->
+
+		<input type="text" id="input">
+</body>
+</html>

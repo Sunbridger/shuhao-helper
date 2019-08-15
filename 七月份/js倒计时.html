@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<input id="btn" type="button" disabled="disabled" value="请仔细阅读5">
+	
+	<script>
+		function my$(id) {
+			return document.getElementById(id);
+		}
+	</script>
+	<script>
+		var time = 5;
+		var tt = setInterval(function () {
+			time--;
+			my$("btn").value = "请仔细阅读(" + time + ")";
+			if (time <= 0) {
+				clearInterval(tt);
+				my$("btn").value = "同意";
+				my$("btn").style.background="#ccc";
+				my$("btn").disable = false;
+			}
+
+		}, 1000);
+	</script>
+</body>
+
+</html>

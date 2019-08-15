@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.box{
+		width: 200px;
+		height: 112px;
+	}
+	.big{
+		width: 400px;
+		height: 400px;
+		overflow: hidden;
+	}
+	.small{
+		position: relative;
+	}
+	.small>img{
+		width: 200px;
+	}
+	.big>img{
+		width: 800px;
+	}
+	.big,.mask{
+		display: none;
+	}
+	.mask{
+		position: absolute;
+		top: 0;
+		width: 20px;
+		height: 20px;
+		opacity: 0.5;
+		background-color: red;
+	}
+</style>
+</head>
+<body>
+	<div class="box">
+		<div class="small">
+			<img src="images/datu15small.jpg" alt="">
+			<div class="mask"></div>
+		</div>
+		<div class="big">
+			<img src="images/datu15big.jpg" alt="">
+		</div>
+	</div>
+
+	<script>
+		//获取小图和大图以及遮挡层们的div的 标签
+		var smalldiv=document.getElementsByClassName("small")[0];
+		var bigdiv=document.getElementsByClassName("big")[0];
+		var mask=document.getElementsByClassName("mask")[0];
+		var box=document.getElementsByClassName("box")[0];
+		//鼠标进入 显示遮挡层 和大图们的div
+		box.onmouseover=function(){
+			bigdiv.style.display="block";
+			mask.style.display="block";
+		};
+		box.onmouseleave=function(){
+			bigdiv.style.display="none";
+			mask.style.display="none";
+		};
+		smalldiv.onmousemove=function(e){
+			var x=e.clientX-mask.offsetWidth/2;
+			var y=e.clientY-mask.offsetHeight/2;
+			x=x<0?0:x;
+			y=y<0?0:y;
+			x=x>smalldiv.offsetWidth-mask.offsetWidth?smalldiv.offsetWidth-mask.offsetWidth:x;
+			y=y>smalldiv.offsetHeight-mask.offsetHeight?smalldiv.offsetHeight-mask.offsetHeight:y;
+			mask.style.left=x+"px";
+			mask.style.top=y+"px";
+//大图横向移动的最大距离
+var maxX=bigdiv[0].getElementsByTagName("img")[0].offsetWidth-bigdiv[0].offsetWidth;
+//大图纵向最大值
+var maxY=bigdiv[0].getElementsByTagName("img")[0].offsetHeight-bigdiv[0].offsetHeight;	
+var bigImgMoveX=x*maxX/(smalldiv.offsetWidth-mask.offsetWidth
+	);
+var bigImgMoveY=y*maxX/(smalldiv.offsetWidth-mask.offsetWidth
+	);
+bigdiv[0].getElementsByTagName("img")[0].style.marginLeft=-bigImgMoveX+"px";
+bigdiv[0].getElementsByTagName("img")[0].style.marginTop=-bigImgMoveY+"px";
+};
+</script>
+</body>
+</html>

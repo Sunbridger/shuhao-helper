@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+<style>
+div>p{background: blue;}
+/*#div1>p{background: blue;} 同样适用于选择子元素的*/
+/*子元素选择器 用>号连接*/
+
+h2+#p1{background:red;}
+/*这被称为一个相邻选择器. 它只会匹配紧跟其前方元素的同胞元素.
+
+
+必须紧跟在后面 必须是兄弟关系 相邻选择器  +# . p */
+#div1 p{
+	/*结合选择器 选择div1里的所有p元素*/
+	font-size: 50px;
+}
+h3+.p2{background: pink;}
+/*同级关系用 + 号相连接*/
+p[class]{background: #000;}
+/*属性选择器*/
+p[class="p2"]{background: #c00;}
+/*属性值选择器*/
+h2~p{font-size: 32px;}
+/*通用兄弟选择器  给指定选择器h2后面的所有选择器选中的(p)标签，设置属性*/
+span::after{
+	content"江西";
+}
+
+/*伪元素 before after 每个元素都有这两个伪元素*/
+/*区别 伪类
+伪类用一个冒号表示 :first-child 
+伪元素则使用两个冒号表示 ::first-line 
+CSS 伪类用于向某些选择器如a p 添加特殊的效果。
+CSS 伪元素用于将特殊的效果添加到某些选择器。
+
+ */
+/*后面的覆盖前面的颜色样式 优先级高低问题*/
+li + li{
+  color: red;
+}
+/*写在style里的都是 内部样式
+
+
+
+
+*/
+/*/*行间样式：css写在标签里面，如：
+ <h1 style="color:red;">行间样式</h1>
+也就是 内联式
+ 不推荐使用，css代码跟页面内容混在一起，很难看。
+/*
+
+ 内部样式 也就是嵌入样式表：css写在html页面的<head></head>标签里面，如：
+<style type="text/css">
+h2 { color:red; }
+
+内联样式表（标签内部）> 嵌入样式表（当前文件中）> 外部样式表（外部文件中）
+*/
+/*
+前方元素 + 目标元素 {样式声明 }
+ 它只会匹配紧跟其前方元素的同胞元素*/
+/* div em{  }后代选择器（descendant selector）又称为包含选择器。
+
+后代选择器可以选择作为某元素后代的元素。
+
+table.company td > p
+上面的选择器会选择作为 td 元素子元素的所有 p 元素，这个 td 元素本身从 table 元素继承，该 table 元素有一个包含 company 的 class 属性。
+span strong em a address  行内元素 不能设置宽高也就不能承载其他内容 不会独占一行（新起的元素内容   紧跟后面的文字）并且它的内容决定宽度哦（盒子大小由它的内容决定）~！
+
+div p h 块级(标签)元素 可以设置宽高 独占一行
+
+行内块级元素：img     可以设置宽高 但是不会独占一行
+display(显示模式)：block(块级) inline-block（行内块级）  inline（行内）
+*/
+h1{
+
+	color: black !important;
+	/*行间样式一般不用*/
+}
+
+
+</style>
+<!-- 
+ 页面内容：<h2 style="color:red;">内部样式</h2>
+
+ 外部样式：css文件单独写，由html加载（针对开发推荐使用此方法），如 -->
+<link rel="stylesheet" type="text/css"  href="123.css" />
+
+
+</style>
+</head>
+<body>
+<h1 style="font-size:12px;color:#ff2d2d;">我的行间CSS样式。</h1>
+
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <!-- <p>jjjj</p> -->
+  <li>Three</li>
+  <li>four</li>
+</ul>
+
+<div id="div1">
+<h2> woshi biaoqti </h2>
+<p id="p1">zheshi ===段落一</p>
+<!-- p1是紧跟在h2后面的 所以 red可以显示 否则无用 -->
+<p class="p2">zheshiduanluo222</p>
+<p>zheshiduanluo3333</p>
+
+</div>
+
+
+<div id="div2">
+<h3> woshi biaoqti </h3>
+<p class="p2">zheshi ===段落一</p>
+<!-- p2是紧跟在h3后面的 所以 red可以显示 否则无用 -->
+<p id="p3">zheshiduanluo222</p>
+<p>zheshiduanluo3333</p>
+</div>
+
+<span>
+农业大学
+</span>
+
+</body>
+</html>

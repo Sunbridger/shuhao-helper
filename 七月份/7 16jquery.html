@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="jquery-1.7.1.js"></script>
+	<script>
+ 	//$(doucment).ready(function(){});的简写
+ 	$(function(){
+ 		var add=$("#address");
+ 		// console.log(add.attr("placeholder"));
+ 		var pass=$("#password");
+ 		//得到焦点事件
+ 		add.focus(function(){
+ 			if($(this).attr("placeholder")==="请输入地址邮箱"){
+ 				$(this).attr("placeholder","");
+ 			}
+ 		});
+ 		//失去焦点事件
+ 		add.blur(function(){
+ 			if($(this).attr("placeholder")===""){
+ 				$(this).attr("placeholder","请输入地址邮箱");
+ 			}
+ 		});
+
+ 		// 密码部分
+ 		//得到焦点事件
+ 		pass.focus(function(){
+ 			if($(this).attr("placeholder")==="请输入邮箱密码"){
+ 				$(this).attr("placeholder","");
+ 			}
+ 		});
+ 		//失去焦点事件
+ 		pass.blur(function(){
+ 			if($(this).attr("placeholder")===""){
+ 				$(this).attr("placeholder","请输入邮箱密码");
+ 			}
+ 		});
+ 	});
+ 	$(function(){
+ 		var ou=$("body").children("ul");
+ 		var iu=ou.children("ul");//jquery中对象是类数组 但是不需要循环
+ 		var a=ou.children("a");
+ 		iu.hide();
+ 		a.click(function(){
+ 			$(this).css("color","green").parent().siblings().children("a").css("color","").next().hide();
+ 			$(this).next().show();
+ 			return false;
+ 		});
+ 		//添加新元素的方式
+ 		// var newdiv="<div id='a'>"+"内容阿萨德"+"</div>";
+ 		// var newdiv2=$("<div id='as'></div>").text("家换届大会");
+ 		// $("body").append(newdiv);
+ 		// $("body").append(newdiv2);
+ 		// console.log(newdiv);
+ 		// var newdiv3=$("<button></button>").text("点它").appendTo($("body"));
+ 		// newdiv3.click(function(event){
+ 		// 	alert(event.clientX+"===="+event.pageX);
+ 		// 	alert(event.clientX+"===="+event.pageX);
+ 		// 	alert(event.offsetX+"===="+event.offsetX);
+ 		// 	console.log(event.data);
+
+ 		// });
+ 	});
+ 	//事件的切换
+ 	$(function(){
+ 		$("#panel h5.head").mousedown(function(e){
+ 			console.log(e.which);
+ 		});
+ 		$("#panel h5.head").toggle(function(){
+
+ 			$(this).next().slideUp(1000)},function(){
+ 				$(this).next().fadeIn(500);
+
+ 		//bind("click",function(){
+ 			// if($(this).next().is(":visible")){
+ 			// 	$(this).next().hide();
+ 			// }
+ 			// else{
+ 			// 	$(this).next().show();	
+ 			// }
+ 			// $(this).next().is(":visible")?$(this).next().hide():$(this).next().show();
+ 			
+ 		});
+ 		$("#bb").click(function(){
+ 			console.log("HH");
+ 		});
+ 		$("#bb").trigger("click");//可简写.click()
+
+ 		$("#divmove").click(function(){
+ 			$(this).animate({"margin-left":"+=50px",opacity:"0.5"},500,function(){
+ 				$(this).css({"backgroundColor":"red","opacity":"1"});
+ 			});
+ 		});
+ 	});
+ </script>
+</head>
+<body>
+	<input type="text" id="address" placeholder="请输入地址邮箱"><br/>
+
+	<input type="text" id="password" placeholder="请输入邮箱密码"><br/>
+
+
+	<!-- 第二部分 -->
+	<ul>
+		<a href="">点击</a>
+		<ul>
+			<li>蒋坤</li>
+			<li>距离</li>
+			<li>进口</li>
+		</ul>
+	</ul>
+	<ul>
+		<a href="">点击</a>
+		<ul>
+			<li>蒋坤</li>
+			<li>距离</li>
+			<li>进口</li>
+		</ul>
+	</ul>
+	<ul>
+		<a href="">点击</a>
+		<ul>
+			<li>蒋坤</li>
+			<li>距离</li>
+			<li>进口</li>
+		</ul>
+	</ul>
+<button id="bb"></button>
+<!-- //动画效果 -->
+<div id="divmove" style="width:100px;height:100px;border:1px solid red"></div>
+	<div id="panel">
+		<h5 class="head">什么是jquery</h5>
+		<div class="content">
+			.on方法比.bind方法多一个参数'selector'
+			好处在于.on方法
+
+			原理是事件冒泡，进行事件委托，子元素把事件委托给父元素进行事件处理；
+
+			这样的好处 
+
+			1.万一子元素非常多，给每个子元素都添加一个事件，会影响到性能；
+
+			2.为动态添加的元素也能绑上指定事件；
+		</div>
+	</div>
+</body>
+</html>

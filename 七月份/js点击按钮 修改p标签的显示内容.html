@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<!-- <button type="button" id="btn">按钮</button>
+	<div id="dv1">
+	<p>这是一段文字噢噢噢噢</p>
+	<p>这是一段文字噢噢噢噢</p>
+	<p>这是一段文字噢噢噢噢</p>
+	<p>这是一段文字噢噢噢噢</p>
+	<p>这是一段文字噢噢噢噢</p>
+	<p>这是一段文字噢噢噢噢</p>
+	</div>
+	
+    
+     <script>
+      document.getElementById('btn').onclick=function()
+      {
+      var dd=document.getElementById("dv1");
+      var pp=dd.getElementsByTagName("p");
+      for(var i=0;i<pp.length;i++)
+      {
+      	pp.innerText="版多组数据";
+      }
+      
+      };
+    </script> -->
+    <input type="button" id="btn" value="按钮"><br>
+      <input type="text" value=""><br>
+        <input type="text" value=""><br>
+          <input type="text" value=""><br>
+            <input type="text" value=""><br>
+              <input type="text" value=""><br>
+                <input type="text" value="">
+
+                  <script>
+    document.getElementById('btn').onclick=function(){
+
+    	var inputs=document.getElementsByTagName('input');
+    	for(
+           var i=0;i<inputs.length;i++
+    		)
+// {
+// 	inputs[2].value="sdad";
+// }
+// };
+
+    	{
+    	if(
+    	   inputs[i].type!="button"
+    	)	
+    	{
+    		inputs[i].value="优质啦啦啦";
+    	}
+    }
+};
+
+                </script>
+</body>
+</html>

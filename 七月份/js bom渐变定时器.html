@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        background-color: red;
+        width: 200px;
+        height: 200px;
+
+    }
+    </style>
+</head>
+<body>
+    <input type="button" value="变色" id="btn">
+    <div id="dv"></div>
+    <script>
+    function my$(id){
+        return document.getElementById(id);
+    }
+    </script>
+    <script>
+       
+    my$("btn").onclick=function(){
+        var opacity=10;
+  var timeid=setInterval(
+      function(){
+          opacity--;
+if(opacity<=0){
+    clearInterval(timeid);
+}
+     my$("dv").style.opacity=opacity/10;
+      }
+      ,500);
+    };
+    </script>
+</body>
+</html>

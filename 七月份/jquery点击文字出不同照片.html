@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    $(function () {
+       // 左边的ul的li
+      $(".left>li").mouseenter(function () {
+        var index = $(this).index();
+        $(".center>li").stop().hide(500);
+        $(".center>li:eq(" + index + ")").stop().show(1000);
+      });
+      // 右边的ul的li
+      $(".right>li").mouseenter(function(){
+        var index=$(this).index()+4;
+        $(".center>li").stop().hide(500);
+        $(".center>li:eq("+index+")").stop().show(1000);
+      });
+    });
+   
+  </script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #box {
+      width: 500px;
+      height: 400px;
+      margin: 100px auto;
+      border: 1px solid #ccc;
+    }
+
+    .center {
+      width: 400px;
+      height: 400px;
+      float: left;
+      overflow: hidden;
+    }
+
+    .left,
+    .right {
+      text-align: center;
+      font-size: 20px;
+      line-height: 80px;
+      width: 50px;
+      height: 400px;
+      float: left;
+    }
+
+    img,
+    a {
+      display: block;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: royalblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <ul class="left">
+      <li>
+        <a href="#">一张</a>
+      </li>
+      <li>
+        <a href="#">两张</a>
+      </li>
+      <li>
+        <a href="#">三张</a>
+      </li>
+      <li>
+        <a href="#">四张</a>
+      </li>
+      <li>
+        <a href="#">五张</a>
+      </li>
+    </ul>
+    <ul class="center">
+      <li>
+        <a href="#">
+          <img src="images/mtu1.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu2.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu3.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu4.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu5.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu6.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu7.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu8.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu9.jpg" /> </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="images/mtu10.jpg" />
+        </a>
+      </li>
+    </ul>
+    <ul class="right">
+      <li>
+        <a href="#">张飞</a>
+      </li>
+      <li>
+        <a href="#">合肥</a>
+      </li>
+      <li>
+        <a href="#">河北</a>
+      </li>
+      <li>
+        <a href="#">北京</a>
+      </li>
+      <li>
+        <a href="#">上海</a>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>

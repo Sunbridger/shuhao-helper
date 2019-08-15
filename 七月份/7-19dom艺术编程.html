@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{
+			display: block;
+			width: 800px;
+			height: 450px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>My images</h1>
+	<ul>
+		<li><a href="images/datu12.jpg">one</a></li>
+		<li><a href="images/datu13.jpg">two</a></li>
+		 <li><a href="images/datu14.jpg">three</a></li>
+		<li><a href="images/datu15.jpg">four</a></li>
+	</ul>
+	<img src="" alt="">
+	<script>
+		function showpic(whichpic){//把封转好的代码函数功能放入js脚本文件里
+			var herf=whichpic.getAttribute("herf");
+			var img=document.getElementsByTagName("img")[0];
+			img.setAttribute(src,"herf");
+		}
+		console.log(document.getElementsByTagName("h1")[0].childNodes[0].nodeValue);
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    diva{
+        background-color: #ccc;
+    }
+</style>
+</head>
+<body>
+    <input id="btn" type="button" value="anniu">
+    <div id="dv"></div>
+    <script>
+    function my$(id){
+   return  document.getElementById(id);
+    }
+    </script>
+    <script>
+    var names=["往哪","看好","花甲粉","很骄傲和"];
+      my$("btn").onclick=function(){
+var str="<ul style='color:red;list-style:none'>";
+for(var i=0;i<names.length;i++){
+    str+="<li>"+names[i]+"</li>";
+}
+  str+="</ul>";
+     my$("dv").innerHTML=str;
+     
+      } ;
+    </script>
+</body>
+</html>
