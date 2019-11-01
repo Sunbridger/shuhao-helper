@@ -23,7 +23,7 @@ export default class App extends Vue {
     isalways = '写法方便点咯';
     students: Array<Person> = [];
     created() {
-        get('/eggapi').then(res => {
+        get('/').then(res => {
             this.students = res.data;
         })
     }
