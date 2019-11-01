@@ -4,8 +4,9 @@
 
 <template>
   <div id="app">
+      <img src="http://img.soogif.com/yOaiRUMu16q1X30YfhK6obpQNaqd2p50.gif_s400x0" alt="">
       <p v-for="item in students" :key="item.id" @click="getData(item)">{{item.name}}</p>
-      <button @click="add" >+++</button>
+      
   </div>
 </template>
 
