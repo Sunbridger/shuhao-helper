@@ -5,6 +5,7 @@
 <template>
   <div id="app">
       <p v-for="item in students" :key="item.id" @click="getData(item)">{{item.name}}</p>
+      <button @click="add" >+++</button>
   </div>
 </template>
 
@@ -27,12 +28,17 @@ export default class App extends Vue {
             this.students = res.data;
         })
     }
-    private getData(row) {
+    getData(row) {
         this.isnormal = + new Date();
     }
     @Watch('isnormal') 
     watcFn(a, b) {
         console.log(99999, a, b);
+    }
+    add() {
+        get('/add').then(res => {
+            console.log(res);
+        })
     }
 }
 </script>
