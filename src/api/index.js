@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseUrl = process.env.VUE_APP_DOMAIN;
-console.log(process.env, 'baseUrl');
+console.log(baseUrl, 'baseUrl');
 export const get = (url, opt = {}) => {
     return axios.get(baseUrl + url, opt);
 }
