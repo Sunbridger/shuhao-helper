@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// const baseUrl = 'http://47.96.149.250:7001';
+const baseUrl = process.env.BASE_URL;
 
 export const get = (url, opt = {}) => {
-    return axios.get(url, opt);
+    return axios.get(baseUrl + url, opt);
 }
 
 export const post = (url, opt = {}) => {
-    return axios.post(url, opt);
+    return axios.post(baseUrl + url, opt);
 }
