@@ -4,8 +4,9 @@
 
 <template>
   <div id="app">
+      <h1>网站待更新...</h1>
       <img src="http://img.soogif.com/yOaiRUMu16q1X30YfhK6obpQNaqd2p50.gif_s400x0" alt="">
-      <p v-for="item in students" :key="item.id" @click="getData(item)">{{item.name}}:{{item.age}}</p>
+      
       
   </div>
 </template>
@@ -25,9 +26,9 @@ export default class App extends Vue {
     isalways = '写法方便点咯';
     students: Array<Person> = [];
     created() {
-        get('/').then(res => {
-            this.students = res.data;
-        })
+        // get('/').then(res => {
+        //     this.students = res.data;
+        // })
     }
     getData(row) {
         this.isnormal = + new Date();
