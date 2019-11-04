@@ -32,7 +32,7 @@ export default class App extends Vue {
         })
     }
     getData(row) {
-        // getIn(1)
+        getIn(1)
         this.isnormal = + new Date();
     }
     @Watch('isnormal') 
