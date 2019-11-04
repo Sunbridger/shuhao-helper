@@ -32,10 +32,9 @@ export default class App extends Vue {
         })
     }
     getData(row) {
-        getIn(1)
         this.isnormal = + new Date();
     }
-    @Watch('isnormal') 
+    @Watch('isnormal')
     watcisnormalFn(a, b) {
         console.log('这个名字随意 可以直接匿名么', a, b);
     }
@@ -46,5 +45,3 @@ export default class App extends Vue {
     }
 }
 </script>
-
-
