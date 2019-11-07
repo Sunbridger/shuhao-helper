@@ -1,7 +1,5 @@
 module.exports = {
-    configureWebpack: {
-        resolve: {
-            extensions: ['.vue', '.js', '.ts', '.json']
-        }
+    configureWebpack: (config) => {
+        config.resolve.extensions = ['.vue', '.js', '.ts', '.json'];
     }
 }
