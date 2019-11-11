@@ -5,20 +5,21 @@ Vue.use(Router);
 
 
 const router = new Router({
-  mode: 'hash',
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      redirect: {
-          name: 'login'
-      },
-    },
-    {
-        path: '/login',
-        name: 'login',
-        component: Login,
-    }],
+    mode: 'hash',
+    routes: [
+        {
+            path: '/',
+            name: 'index',
+            redirect: {
+                name: 'login'
+            },
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: Login,
+        }
+    ],
 });
 
 export default router;

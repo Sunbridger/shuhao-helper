@@ -4,7 +4,7 @@
 
 <template>
     <div id="app">
-        <router-view/>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ import { get } from './api'
 })
 export default class App extends Vue {
     created() {
-        this.add();
+        // this.add();
     }
     add() {
         get('/add', {
