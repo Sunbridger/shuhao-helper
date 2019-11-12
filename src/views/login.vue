@@ -15,6 +15,9 @@
     .mar .red-name {
         color: brown;
     }
+    .text-comment {
+        line-height: 30px;
+    }
 </style>
 <template>
     <div class="pg-comment">
@@ -26,7 +29,7 @@
                     <p>{{item.time}}</p>
                 </div>
             </div>
-            <p>{{item.text}}</p>
+            <p class="text-comment">{{item.text}}</p>
         </div>
     </div>
 </template>
