@@ -1,32 +1,83 @@
+<style>
+    .pg-comment {
+        padding: 12px;
+    }
+    .flex {
+        display: flex;
+    }
+    .el-avatar {
+        margin: auto 0;
+    }
+    .mar p{
+        margin: 5px 12px;
+        color: #909399;
+    }
+    .mar .red-name {
+        color: brown;
+    }
+</style>
 <template>
-    <div>
-        <el-input placeholder="请输入姓名" v-model="name" maxlength="10" show-word-limit></el-input>
-        <el-input type="number" placeholder="请输入年龄" v-model="age" ></el-input>
-        <el-button type="info" icon="el-icon-message" circle @click="submit"></el-button>
+    <div class="pg-comment">
+        <div class="block-box" v-for="item in data" :key="item.id">
+            <div class="flex" v-if="item.name">
+                <el-avatar shape="square" :size="50" :src="item.ava_url"></el-avatar>
+                <div class="mar">
+                    <p class="red-name">{{item.name}}</p>
+                    <p>{{item.time}}</p>
+                </div>
+            </div>
+            <p>{{item.text}}</p>
+        </div>
     </div>
 </template>
 <script>
 
 import { get } from '../api';
+import _ from 'lodash';
 
 export default {
     name: 'login',
     data() {
         return {
-            name: '',
-            age: ''
+            data: [],
+            index: 0,
+            pageSize: 10,
+            canLoad: true
         }
     },
     methods: {
-        submit() {
-            const { name, age } = this;
-            get('/add', {
-                name,
-                age
-            }).then(res => {
-                this.$message('ok');
+        init() {
+            const { pageSize, index } = this;
+            get('/', {
+                index,
+                pageSize
+            }).then(({data}) => {
+                if (data.length) {
+                    this.data = this.data.concat(data);
+                } else {
+                    this.canLoad = false;
+                }
             });
+        },
+        scrollLoad() {
+            //文档内容实际高度（包括超出视窗的溢出部分）
+            let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+            //滚动条滚动距离
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            //窗口可视范围高度
+            let clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight,document.body.clientHeight);
+
+            if(clientHeight + scrollTop >= scrollHeight && this.canLoad){
+                this.index++;
+                this.init();
+            }
         }
+    },
+    created() {
+        this.init();
+    },
+    mounted() {
+        window.addEventListener('scroll', _.throttle(this.scrollLoad, 200));
     }
 };
 </script>

@@ -1,15 +1,15 @@
 import Vue from 'vue'
-import { 
-    Button, 
-    Input, 
-    Avatar, 
-    Carousel, 
-    CarouselItem, 
-    Form, 
-    FormItem, 
-    RadioGroup, 
-    Radio, 
-    Upload, 
+import {
+    Button,
+    Input,
+    Avatar,
+    Carousel,
+    CarouselItem,
+    Form,
+    FormItem,
+    RadioGroup,
+    Radio,
+    Upload,
     Loading,
     Message,
     Badge,
@@ -18,7 +18,8 @@ import {
     Dialog,
     Dropdown,
     DropdownItem,
-    DropdownMenu
+    DropdownMenu,
+    InfiniteScroll
 } from 'element-ui'
 
 Vue.use(Button);
@@ -41,3 +42,4 @@ Vue.prototype.$message = Message;
 Vue.prototype.$alert = MessageBox.alert;
 Vue.prototype.$loading = Loading.service;
 Vue.use(Loading.directive);
+Vue.use(InfiniteScroll);
