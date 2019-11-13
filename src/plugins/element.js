@@ -19,10 +19,14 @@ import {
     Dropdown,
     DropdownItem,
     DropdownMenu,
-    InfiniteScroll
+    InfiniteScroll,
+    Tabs,
+    TabPane
 } from 'element-ui'
 
 Vue.use(Button);
+Vue.use(Tabs);
+Vue.use(TabPane);
 Vue.use(Input);
 Vue.use(Avatar);
 Vue.use(Carousel);

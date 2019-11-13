@@ -1,6 +1,7 @@
 <style>
     .pg-comment {
         padding: 12px;
+        padding-top: 55px;
     }
     .flex {
         display: flex;
