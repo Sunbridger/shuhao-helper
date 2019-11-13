@@ -21,6 +21,7 @@
         line-height: 30px;
     }
     .num-box {
+        color: #909399;
         height: 30px;
     }
     .flex-space {

@@ -7,6 +7,12 @@
         width: 100%;
         background: white;
     }
+    .el-tabs__nav-scroll {
+        display: flex;
+    }
+    .el-tabs__nav {
+        margin: auto;
+    }
 </style>
 
 <template>
