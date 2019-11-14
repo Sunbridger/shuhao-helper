@@ -3,6 +3,7 @@
         margin: 0;
     }
     .index-box {
+        z-index: 9999;
         position: fixed;
         width: 100%;
         background: white;
@@ -21,9 +22,12 @@
             <el-tabs v-model="activeName" @tab-click="handleClick">
                 <el-tab-pane label="榜姐评论排行" name="/login"></el-tab-pane>
                 <el-tab-pane label="乔乔乔的微博" name="/me"></el-tab-pane>
+                <el-tab-pane label="淘宝数据" name="/taobao"></el-tab-pane>
             </el-tabs>
         </div>
-        <router-view></router-view>
+        <keep-alive>
+            <router-view />
+        </keep-alive>
     </div>
 </template>
 

@@ -67,7 +67,7 @@ export default {
         return {
             data: [],
             index: 0,
-            pageSize: 10,
+            pageSize: 20,
             canLoad: true
         }
     },

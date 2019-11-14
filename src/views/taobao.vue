@@ -1,37 +1,39 @@
 <style>
-    .pg-comment {
+    .pg-taobao {
         padding: 12px;
         padding-top: 55px;
-    }
-    .flex {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
     }
-    .el-avatar {
-        margin: auto 0;
+    .taobao-box {
+        width: 49%;
     }
-    .mar p{
-        margin: 5px 12px;
+    .tip-circle {
+        background: rgba(211, 233, 233, 0.4);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
         color: #909399;
-    }
-    .mar .red-name {
-        color: brown;
-    }
-    .text-comment {
-        line-height: 30px;
+        font-size: 12px;
+        position: fixed;
+        bottom: 20px;
+        right: 2px;
     }
 </style>
 <template>
-    <div class="pg-comment">
-        <div class="block-box" v-for="item in data" :key="item.id">
-            <div class="flex" v-if="item.name">
-                <el-avatar shape="square" :size="50" :src="item.ava_url"></el-avatar>
-                <div class="mar">
-                    <p class="red-name">{{item.name}}</p>
-                    <p>{{item.time}}</p>
-                </div>
-            </div>
-            <p class="text-comment">{{item.text}}</p>
+    <div class="pg-taobao">
+        <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
+            <el-image :src="item.good_img" lazy></el-image>
+            <el-link :href="item.good_url">{{item.good_title}}</el-link>
+            <p>¥{{item.tit_price}}</p>
         </div>
+        <transition name="el-fade-in">
+            <div class="tip-circle" v-if="showTip" @click="changeStyle">切换</div>
+        </transition>
     </div>
 </template>
 <script>
@@ -46,13 +48,15 @@ export default {
             data: [],
             index: 0,
             pageSize: 20,
-            canLoad: true
+            canLoad: true,
+            showTip: false,
+            excStyle: false
         }
     },
     methods: {
         init() {
             const { pageSize, index } = this;
-            get('/', {
+            get('/mall', {
                 index,
                 pageSize
             }).then(({data}) => {
@@ -74,7 +78,13 @@ export default {
             if(clientHeight + scrollTop >= scrollHeight && this.canLoad){
                 this.index++;
                 this.init();
+                if (this.index >= 2) {
+                    this.showTip = true;
+                }
             }
+        },
+        changeStyle() {
+            this.excStyle = !this.excStyle;
         }
     },
     created() {

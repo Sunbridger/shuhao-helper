@@ -21,10 +21,14 @@ import {
     DropdownMenu,
     InfiniteScroll,
     Tabs,
-    TabPane
+    TabPane,
+    Link,
+    Image
 } from 'element-ui'
 
 Vue.use(Button);
+Vue.use(Link);
+Vue.use(Image);
 Vue.use(Tabs);
 Vue.use(TabPane);
 Vue.use(Input);
