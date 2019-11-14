@@ -12,7 +12,7 @@ export default {
         pullUp: Function,
         className: {
             type: String,
-            default: 'xxx'
+            default: ''
         }
     },
     methods: {
@@ -20,7 +20,7 @@ export default {
             let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
             let clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight,document.body.clientHeight);
-            if(clientHeight + scrollTop + 100 >= scrollHeight){
+            if(clientHeight + scrollTop + 200 >= scrollHeight){
                 this.pullUp();
             }
         }

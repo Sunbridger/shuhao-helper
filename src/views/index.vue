@@ -41,6 +41,7 @@ export default {
     },
     methods: {
         handleClick() {
+            if (this.activeName === this.$route.path) return;
             this.$router.push({
                 name: this.activeName
             })
