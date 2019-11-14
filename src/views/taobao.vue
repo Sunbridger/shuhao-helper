@@ -2,9 +2,6 @@
     .pg-taobao {
         padding: 12px;
         padding-top: 55px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
         position: relative;
     }
     .taobao-box {
@@ -16,21 +13,28 @@
         width: 45px;
         height: 45px;
         text-align: center;
-        line-height: 40px;
+        line-height: 45px;
         color: #909399;
         font-size: 12px;
         position: fixed;
         bottom: 20px;
         right: 8px;
     }
+    .myflex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 </style>
 <template>
     <div class="pg-taobao">
-        <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
-            <el-image :src="item.good_img"></el-image>
-            <el-link :href="item.good_url">{{item.good_title}}</el-link>
-            <p>¥{{item.tit_price}}</p>
-        </div>
+        <my-scroll :pullUp="pullUp" className="myflex">
+            <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
+                <el-image :src="item.good_img"></el-image>
+                <el-link :href="item.good_url">{{item.good_title}}</el-link>
+                <p>¥{{item.tit_price}}</p>
+            </div>
+        </my-scroll>
         <transition name="el-fade-in">
             <div class="tip-circle" v-if="showTip" @click="changeStyle">切换</div>
         </transition>
@@ -39,7 +43,7 @@
 <script>
 
 import { get } from '../api';
-import _ from 'lodash';
+import MyScroll from '../components/MyScroll';
 
 export default {
     name: 'login',
@@ -49,49 +53,35 @@ export default {
             index: 0,
             pageSize: 20,
             canLoad: true,
-            showTip: false,
+            showTip: true,
             excStyle: false
         }
     },
     methods: {
-        init() {
+        pullUp() {
+            if (!this.canLoad) return;
             const { pageSize, index } = this;
+            if (index >= 2) {
+                this.showTip = true;
+            }
             get('/mall', {
                 index,
                 pageSize
             }).then(({data}) => {
                 if (data.length) {
                     this.data = this.data.concat(data);
+                    this.index++;
                 } else {
                     this.canLoad = false;
                 }
             });
         },
-        scrollLoad() {
-            //文档内容实际高度（包括超出视窗的溢出部分）
-            let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-            //滚动条滚动距离
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            //窗口可视范围高度
-            let clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight,document.body.clientHeight);
-
-            if(clientHeight + scrollTop >= scrollHeight && this.canLoad){
-                this.index++;
-                this.init();
-                if (this.index >= 2) {
-                    this.showTip = true;
-                }
-            }
-        },
         changeStyle() {
             this.excStyle = !this.excStyle;
         }
     },
-    created() {
-        this.init();
-    },
-    mounted() {
-        window.addEventListener('scroll', _.throttle(this.scrollLoad, 200));
+    components: {
+        MyScroll
     }
 };
 </script>

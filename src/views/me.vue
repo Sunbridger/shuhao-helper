@@ -30,39 +30,40 @@
 </style>
 <template>
     <div class="pg-sunbridger">
-        <div class="block-box" v-for="item in data" :key="item.id">
-            <div class="flex" v-if="item.name">
-                <el-avatar shape="square" :size="50" :src="item.ava_url"></el-avatar>
-                <div class="mar">
-                    <p class="red-name">{{item.name}}</p>
-                    <p>{{item.time}}</p>
+        <my-scroll :pullUp="pullUp">
+            <div class="block-box" v-for="item in data" :key="item.id">
+                <div class="flex" v-if="item.name">
+                    <el-avatar shape="square" :size="50" :src="item.ava_url"></el-avatar>
+                    <div class="mar">
+                        <p class="red-name">{{item.name}}</p>
+                        <p>{{item.time}}</p>
+                    </div>
+                </div>
+                <p class="text-comment">{{item.text}}</p>
+                <div class="num-box flex flex-space">
+                    <span>
+                        <i class="el-icon-share"></i>
+                        {{item.send_num}}
+                    </span>
+                    <span>
+                        <i class="el-icon-s-comment"></i>
+                        {{item.comment_num}}
+                    </span>
+                    <span>
+                        <i class="el-icon-s-flag"></i>
+                        {{item.goods_num}}
+                    </span>
                 </div>
             </div>
-            <p class="text-comment">{{item.text}}</p>
-            <div class="num-box flex flex-space">
-                <span>
-                    <i class="el-icon-share"></i>
-                    {{item.send_num}}
-                </span>
-                <span>
-                    <i class="el-icon-s-comment"></i>
-                    {{item.comment_num}}
-                </span>
-                <span>
-                    <i class="el-icon-s-flag"></i>
-                    {{item.goods_num}}
-                </span>
-            </div>
-        </div>
+        </my-scroll>
     </div>
 </template>
 <script>
 
 import { get } from '../api';
-import _ from 'lodash';
+import MyScroll from '../components/MyScroll';
 
 export default {
-    name: 'login',
     data() {
         return {
             data: [],
@@ -72,7 +73,8 @@ export default {
         }
     },
     methods: {
-        init() {
+        pullUp() {
+            if (!this.canLoad) return;
             const { pageSize, index } = this;
             get('/me', {
                 index,
@@ -80,30 +82,15 @@ export default {
             }).then(({data}) => {
                 if (data.length) {
                     this.data = this.data.concat(data);
+                    this.index++;
                 } else {
                     this.canLoad = false;
                 }
             });
-        },
-        scrollLoad() {
-            //文档内容实际高度（包括超出视窗的溢出部分）
-            let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-            //滚动条滚动距离
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            //窗口可视范围高度
-            let clientHeight = window.innerHeight || Math.min(document.documentElement.clientHeight,document.body.clientHeight);
-
-            if(clientHeight + scrollTop >= scrollHeight && this.canLoad){
-                this.index++;
-                this.init();
-            }
         }
     },
-    created() {
-        this.init();
-    },
-    mounted() {
-        window.addEventListener('scroll', _.throttle(this.scrollLoad, 200));
+    components: {
+        MyScroll
     }
 };
 </script>
