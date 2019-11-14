@@ -13,21 +13,21 @@
     .tip-circle {
         background: rgba(211, 233, 233, 0.4);
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         text-align: center;
         line-height: 40px;
         color: #909399;
         font-size: 12px;
         position: fixed;
         bottom: 20px;
-        right: 2px;
+        right: 8px;
     }
 </style>
 <template>
     <div class="pg-taobao">
         <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
-            <el-image :src="item.good_img" lazy></el-image>
+            <el-image :src="item.good_img"></el-image>
             <el-link :href="item.good_url">{{item.good_title}}</el-link>
             <p>¥{{item.tit_price}}</p>
         </div>
