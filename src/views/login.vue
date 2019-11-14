@@ -82,6 +82,9 @@ export default {
     },
     mounted() {
         window.addEventListener('scroll', _.throttle(this.scrollLoad, 200));
+    },
+    activated() {
+        console.log('qqqqq');
     }
 };
 </script>

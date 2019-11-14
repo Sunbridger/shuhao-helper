@@ -9,16 +9,34 @@ Vue.use(Router);
 
 const router = new Router({
     mode: 'hash',
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        } else {
+            return {
+                x: 0,
+                y: to.meta.scrollTop || 0
+            };
+        }
+    },
     routes: [{
         path: '/',
         component: Index,
         children: [
             { path: '', redirect: '/login' },
-            { path: '/login', component: Login, name: '/login' },
-            { path: '/me', component: Me, name: '/me' },
-            { path: '/taobao', component: taoBao, name: '/taobao' },
+            { path: '/login', component: Login, name: '/login', meta: { keepAlive: true} },
+            { path: '/me', component: Me, name: '/me' , meta: { keepAlive: true}},
+            { path: '/taobao', component: taoBao, name: '/taobao', meta: { keepAlive: true} },
         ]
     }],
+});
+
+router.beforeEach((to, from, next) => {
+    // 保存路由的滚动条状态
+    if (from.meta.keepAlive) {
+        from.meta.scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    }
+    next();
 });
 
 export default router;

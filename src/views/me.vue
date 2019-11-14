@@ -1,5 +1,5 @@
 <style>
-    .pg-comment {
+    .pg-sunbridger {
         padding: 12px;
         padding-top: 55px;
     }
@@ -29,7 +29,7 @@
     }
 </style>
 <template>
-    <div class="pg-comment">
+    <div class="pg-sunbridger">
         <div class="block-box" v-for="item in data" :key="item.id">
             <div class="flex" v-if="item.name">
                 <el-avatar shape="square" :size="50" :src="item.ava_url"></el-avatar>
