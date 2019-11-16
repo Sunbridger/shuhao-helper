@@ -42,8 +42,8 @@
 </template>
 <script>
 
-import { get } from '../api';
-import MyScroll from '../components/MyScroll';
+import { get } from 'api';
+import MyScroll from 'components/MyScroll';
 
 export default {
     name: 'login',

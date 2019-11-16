@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from './views/login.vue';
-import Me from './views/me.vue';
-import Index from './views/index.vue';
-import taoBao from './views/taobao.vue';
+import Login from 'views/login.vue';
+import Me from 'views/me.vue';
+import Index from 'views/index.vue';
+import taoBao from 'views/taobao.vue';
 Vue.use(Router);
 
 
