@@ -61,7 +61,7 @@ export default {
         pullUp() {
             if (!this.canLoad) return;
             const { pageSize, index } = this;
-            if (index >= 2) {
+            if (index >= 3) {
                 this.showTip = true;
             }
             get('/mall', {
