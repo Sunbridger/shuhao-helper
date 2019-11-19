@@ -23,6 +23,7 @@
                 <el-tab-pane label="榜姐评论排行" name="/login"></el-tab-pane>
                 <el-tab-pane label="乔乔乔的微博" name="/me"></el-tab-pane>
                 <el-tab-pane label="淘宝数据" name="/taobao"></el-tab-pane>
+                <el-tab-pane label="微博热搜" name="/hot"></el-tab-pane>
             </el-tabs>
         </div>
         <keep-alive>

@@ -4,6 +4,7 @@ import Login from 'views/login.vue';
 import Me from 'views/me.vue';
 import Index from 'views/index.vue';
 import taoBao from 'views/taobao.vue';
+import hot from 'views/hot.vue';
 Vue.use(Router);
 
 
@@ -27,6 +28,7 @@ const router = new Router({
             { path: '/login', component: Login, name: '/login', meta: { keepAlive: true} },
             { path: '/me', component: Me, name: '/me' , meta: { keepAlive: true}},
             { path: '/taobao', component: taoBao, name: '/taobao', meta: { keepAlive: true} },
+            { path: '/hot', component: hot, name: '/hot', meta: { keepAlive: true} },
         ]
     }],
 });
