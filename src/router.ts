@@ -5,6 +5,7 @@ import Me from 'views/me.vue';
 import Index from 'views/index.vue';
 import taoBao from 'views/taobao.vue';
 import hot from 'views/hot.vue';
+import reban from 'views/reban.vue';
 Vue.use(Router);
 
 
@@ -29,6 +30,7 @@ const router = new Router({
             { path: '/me', component: Me, name: '/me' , meta: { keepAlive: true}},
             { path: '/taobao', component: taoBao, name: '/taobao', meta: { keepAlive: true} },
             { path: '/hot', component: hot, name: '/hot', meta: { keepAlive: true} },
+            { path: '/reban', component: reban, name: '/reban', meta: { keepAlive: true} }
         ]
     }],
 });
