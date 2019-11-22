@@ -58,11 +58,7 @@
                 <p class="text-comment" v-html="item.text"></p>
                 <div class="img-box" v-if="item.imgs">
                     <div class="block">
-                        <el-image v-for="(src, index) in item.imgs" :key="index" :src="src">
-                            <div slot="placeholder" class="image-slot">
-                                加载中<span class="dot">...</span>
-                            </div>
-                        </el-image>
+                        <img v-for="(src, index) in item.imgs" :key="index" :src="src" />
                     </div>
                 </div>
                 <div class="num-box flex flex-space">
