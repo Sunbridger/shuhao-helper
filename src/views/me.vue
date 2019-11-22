@@ -56,6 +56,15 @@
                     </div>
                 </div>
                 <p class="text-comment" v-html="item.text"></p>
+                <div class="img-box" v-if="item.imgs">
+                    <div class="block">
+                        <el-image v-for="(src, index) in item.imgs" :key="index" :src="src">
+                            <div slot="placeholder" class="image-slot">
+                                加载中<span class="dot">...</span>
+                            </div>
+                        </el-image>
+                    </div>
+                </div>
                 <div class="num-box flex flex-space">
                     <span>
                         <i class="el-icon-share"></i>
@@ -97,6 +106,11 @@ export default {
                 pageSize
             }).then(({data}) => {
                 if (data.length) {
+                    data.forEach(el => {
+                        if (el.imgs) {
+                            el.imgs = JSON.parse(el.imgs);
+                        }
+                    })
                     this.data = this.data.concat(data);
                     this.index++;
                 } else {
