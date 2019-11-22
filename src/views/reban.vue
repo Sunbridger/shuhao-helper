@@ -1,7 +1,4 @@
 <style>
-    .co-visit-data-box {
-        margin-top: 45px;
-    }
     .el-switch__label--right.is-active {
         color: #ff4949;
     }
