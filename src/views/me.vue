@@ -27,6 +27,22 @@
     .flex-space {
         justify-content: space-between;
     }
+    .pg-sunbridger a {
+        text-decoration: none;
+        color: #3c6e9e;
+    }
+    .url-icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: .125rem;
+        width: 1rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+    }
+    .url-icon img {
+        width: 1rem;
+        height: 1rem;
+    }
 </style>
 <template>
     <div class="pg-sunbridger">
@@ -39,7 +55,7 @@
                         <p>{{item.time}}</p>
                     </div>
                 </div>
-                <p class="text-comment">{{item.text}}</p>
+                <p class="text-comment" v-html="item.text"></p>
                 <div class="num-box flex flex-space">
                     <span>
                         <i class="el-icon-share"></i>
