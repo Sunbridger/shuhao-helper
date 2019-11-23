@@ -43,6 +43,24 @@
         width: 1rem;
         height: 1rem;
     }
+    .block {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    /* TODO 图片压缩的问题 */
+    .block img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 2%;
+    }
+    .block .img2 {
+        width: 48%;
+        height: 200px;
+    }
+    .block .img3 {
+        width: 32%;
+        height: 120px;
+    }
 </style>
 <template>
     <div class="pg-sunbridger">
@@ -56,9 +74,19 @@
                     </div>
                 </div>
                 <p class="text-comment" v-html="item.text"></p>
-                <div class="img-box" v-if="item.imgs">
-                    <div class="block">
-                        <img referrerpolicy="no-referrer" v-for="(src, index) in item.imgs" :key="index" :src="src" />
+                <div class="img-box" v-if="item.imgs.length === 1">
+                    <div class="block flex">
+                        <img class="img1" referrerpolicy="no-referrer" v-for="(src, index) in item.imgs" :key="index" :src="src" />
+                    </div>
+                </div>
+                <div class="img-box" v-if="item.imgs.length === 2">
+                    <div class="block flex">
+                        <img class="img2" referrerpolicy="no-referrer" v-for="(src, index) in item.imgs" :key="index" :src="src" />
+                    </div>
+                </div>
+                <div class="img-box" v-if="item.imgs.length >= 3">
+                    <div class="block flex">
+                        <img class="img3" referrerpolicy="no-referrer" v-for="(src, index) in item.imgs" :key="index" :src="src" />
                     </div>
                 </div>
                 <div class="num-box flex flex-space">
