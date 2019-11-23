@@ -58,7 +58,7 @@
                 <p class="text-comment" v-html="item.text"></p>
                 <div class="img-box" v-if="item.imgs">
                     <div class="block">
-                        <img v-for="(src, index) in item.imgs" :key="index" :src="src" />
+                        <img referrerpolicy="no-referrer" v-for="(src, index) in item.imgs" :key="index" :src="src" />
                     </div>
                 </div>
                 <div class="num-box flex flex-space">
