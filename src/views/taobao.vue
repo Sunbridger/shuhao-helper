@@ -25,6 +25,12 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
+    .gray {
+        color: #909399;
+    }
+    .red-text {
+        color: red;
+    }
 </style>
 <template>
     <div class="pg-taobao">
@@ -32,7 +38,9 @@
             <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
                 <el-image :src="item.good_img"></el-image>
                 <el-link :href="item.good_url">{{item.good_title}}</el-link>
-                <p>¥{{item.tit_price}}</p>
+                <p>当前价格：{{item.tit_price}}</p>
+                <p v-if="item.new_price" class="red-text">最新价格：{{item.new_price}}</p>
+                <p v-else class="gray">价格暂时无变动哦</p>
             </div>
         </my-scroll>
         <transition name="el-fade-in">
