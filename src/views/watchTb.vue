@@ -56,7 +56,7 @@ export default {
             });
         },
         init() {
-            get('')
+
         }
     },
     created() {

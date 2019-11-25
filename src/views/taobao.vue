@@ -38,6 +38,7 @@
             <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
                 <el-image :src="item.good_img"></el-image>
                 <el-link :href="item.good_url">{{item.good_title}}</el-link>
+                <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再监视此商品</el-button>
                 <p>当前价格：{{item.tit_price}}</p>
                 <p v-if="item.new_price" class="red-text">最新价格：{{item.new_price}}</p>
                 <p v-else class="gray">价格暂时无变动哦</p>
@@ -62,7 +63,8 @@ export default {
             pageSize: 20,
             canLoad: true,
             showTip: true,
-            excStyle: false
+            excStyle: false,
+            reload: true
         }
     },
     methods: {
@@ -86,6 +88,18 @@ export default {
         },
         changeStyle() {
             this.excStyle = !this.excStyle;
+        },
+        deletetaobao(good_url) {
+            get('/deletetaobao', {good_url}).finally(() => {
+                this.$message({
+                    message: '成功移除改商品',
+                    type: 'success'
+                });
+                this.index = 0;
+                this.canLoad = true;
+                this.data = [];
+                this.pullUp();
+            })
         }
     },
     components: {
