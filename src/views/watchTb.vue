@@ -1,6 +1,7 @@
 <style>
     .pg-watchTb {
-        padding-top: 70px;
+        padding: 70px 30px;
+        display: flex;
     }
     .el-message {
         margin-top: 30px;
@@ -11,7 +12,7 @@
 </style>
 <template>
     <div class="pg-watchTb">
-        <el-input v-model="url" placeholder="请输入链接"></el-input>
+        <el-input clearable v-model="url" placeholder="请输入链接"></el-input>
         <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
         <div v-if="good.good_url">
             <el-image :src="good.good_img"></el-image>
