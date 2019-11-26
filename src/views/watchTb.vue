@@ -14,7 +14,7 @@
     <div class="pg-watchTb">
         <div class="flex flex-box">
             <el-input clearable v-model="url" placeholder="请输入链接"></el-input>
-            <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
+            <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '收藏该链接商品'}}</el-button>
         </div>
         <div v-if="good.good_url">
             <el-image :src="good.good_img"></el-image>
