@@ -1,8 +1,3 @@
-<style>
-    .el-switch__label--right.is-active {
-        color: #ff4949;
-    }
-</style>
 <template>
     <div class="co-visit-data-box">
         <div id="visit-chart" style="width: 100%; height: 350px;"></div>
