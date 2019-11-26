@@ -26,11 +26,11 @@ const router = new Router({
         path: '/',
         component: Index,
         children: [
-            { path: '', redirect: '/login' },
-            { path: '/login', component: Login, name: '/login', meta: { keepAlive: true} },
-            { path: '/me', component: Me, name: '/me' , meta: { keepAlive: true}},
+            { path: '', redirect: '/taobao' },
+            // { path: '/login', component: Login, name: '/login', meta: { keepAlive: true} },
+            // { path: '/me', component: Me, name: '/me' , meta: { keepAlive: true}},
             { path: '/taobao', component: taoBao, name: '/taobao', meta: { keepAlive: true} },
-            { path: '/hot', component: hot, name: '/hot', meta: { keepAlive: true} },
+            // { path: '/hot', component: hot, name: '/hot', meta: { keepAlive: true} },
             { path: '/reban', component: reban, name: '/reban', meta: { keepAlive: true} },
             { path: '/watchTb', component: watchTb, name: '/watchTb', meta: { keepAlive: true} }
         ]
