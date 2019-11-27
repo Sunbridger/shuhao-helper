@@ -20,7 +20,7 @@
     <div>
         <div class="index-box">
             <el-tabs v-model="activeName" @tab-click="handleClick">
-                <el-tab-pane label="监视TB商品" name="/watchTb"></el-tab-pane>
+                <el-tab-pane label="监视JD商品" name="/watchTb"></el-tab-pane>
                 <el-tab-pane label="收藏商品" name="/taobao"></el-tab-pane>
                 <el-tab-pane label="热榜可视化" name="/reban"></el-tab-pane>
             </el-tabs>
