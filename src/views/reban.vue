@@ -1,3 +1,4 @@
+
 <template>
     <div class="co-visit-data-box">
         <div id="visit-chart" style="width: 100%; height: 350px;"></div>

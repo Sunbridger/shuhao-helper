@@ -40,7 +40,7 @@
                 <el-link :href="item.good_url">{{item.good_title}}</el-link>
                 <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再监视此商品</el-button>
                 <p>当前价格：{{item.tit_price}}</p>
-                <p v-if="item.new_price" class="red-text">最新价格：{{item.new_price}}</p>
+                <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
                 <p v-else class="gray">价格暂时无变动哦</p>
             </div>
         </my-scroll>
@@ -100,6 +100,9 @@ export default {
                 this.data = [];
                 this.pullUp();
             })
+        },
+        formatePrice(str) {
+            return str.split(',').pop();
         }
     },
     components: {
