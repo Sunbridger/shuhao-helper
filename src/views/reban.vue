@@ -1,6 +1,6 @@
 <style>
     .todayhot-box {
-        padding: 10px 20px;
+        padding: 5px 20px;
     }
     i {
         color: #F56C6C;

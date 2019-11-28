@@ -63,7 +63,7 @@ export default {
             pageSize: 20,
             canLoad: true,
             showTip: true,
-            excStyle: false,
+            excStyle: true,
             reload: true
         }
     },
