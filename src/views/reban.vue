@@ -1,7 +1,16 @@
-
+<style>
+    .todayhot-box {
+        padding: 10px 20px;
+    }
+</style>
 <template>
     <div class="co-visit-data-box">
         <div id="visit-chart" style="width: 100%; height: 350px;"></div>
+        <div v-if="todayhotData.length">
+            <div class="todayhot-box" v-for="el in todayhotData" :key="el.text">
+                <p>{{el.text}} <i>热度{{el.num}}</i> </p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -13,7 +22,8 @@ export default {
     data() {
         return {
             xAxisDataForVisit: [],
-            yAxisDataForVisit: []
+            yAxisDataForVisit: [],
+            todayhotData: []
         };
     },
     methods: {
@@ -62,9 +72,15 @@ export default {
                 });
             });
         },
+        async todayhot() {
+            get('/todayhot').then(({data}) => {
+                this.todayhotData = data;
+            });
+        },
         async init() {
             await this.getVisitData();
             this.drawCategoryChart();
+            this.todayhot();
         }
     },
     mounted() {
