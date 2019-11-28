@@ -2,6 +2,9 @@
     .todayhot-box {
         padding: 10px 20px;
     }
+    i {
+        color: #F56C6C;
+    }
 </style>
 <template>
     <div class="co-visit-data-box">
