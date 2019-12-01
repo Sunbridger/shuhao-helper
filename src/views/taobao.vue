@@ -8,7 +8,7 @@
         width: 49%;
     }
     .tip-circle {
-        background: rgba(211, 233, 233, 0.4);
+        background: rgba(211, 233, 233, 0.6);
         border-radius: 50%;
         width: 45px;
         height: 45px;
@@ -32,7 +32,7 @@
         color: red;
     }
     .refress {
-        background: rgba(221, 122, 23, .4);
+        background: rgba(221, 122, 23, .6);
         border-radius: 50%;
         width: 45px;
         height: 45px;
