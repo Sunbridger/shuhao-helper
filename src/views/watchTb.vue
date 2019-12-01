@@ -46,6 +46,7 @@ export default {
             let good_url = this.url.split('?')[0];
             if (!good_url.includes('https')) {
                 this.$message('请输入JD商品的链接');
+                this.load = false;
                 return;
             }
             get('/getJDinfo', {good_url}).then(({data}) => {
