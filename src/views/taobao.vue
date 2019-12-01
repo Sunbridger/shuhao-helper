@@ -18,7 +18,7 @@
         font-size: 12px;
         position: fixed;
         bottom: 20px;
-        right: 8px;
+        left: 8px;
     }
     .myflex {
         display: flex;
@@ -30,6 +30,19 @@
     }
     .red-text {
         color: red;
+    }
+    .refress {
+        background: rgba(221, 122, 23, .4);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        color: #909399;
+        font-size: 12px;
+        position: fixed;
+        bottom: 20px;
+        right: 8px;
     }
 </style>
 <template>
@@ -44,9 +57,8 @@
                 <p v-else class="gray">价格暂时无变动哦</p>
             </div>
         </my-scroll>
-        <transition name="el-fade-in">
-            <div class="tip-circle" v-if="showTip" @click="changeStyle">切换</div>
-        </transition>
+        <div class="tip-circle" @click="changeStyle">切换</div>
+        <div class="refress" @click="reload">刷新</div>
     </div>
 </template>
 <script>
@@ -62,18 +74,13 @@ export default {
             index: 0,
             pageSize: 20,
             canLoad: true,
-            showTip: true,
-            excStyle: true,
-            reload: true
+            excStyle: true
         }
     },
     methods: {
         pullUp() {
             if (!this.canLoad) return;
             const { pageSize, index } = this;
-            if (index >= 3) {
-                this.showTip = true;
-            }
             get('/mall', {
                 index,
                 pageSize
@@ -95,14 +102,17 @@ export default {
                     message: '成功移除改商品',
                     type: 'success'
                 });
-                this.index = 0;
-                this.canLoad = true;
-                this.data = [];
-                this.pullUp();
+                this.reload();
             })
         },
         formatePrice(str) {
             return str.split(',').pop();
+        },
+        reload() {
+            this.index = 0;
+            this.canLoad = true;
+            this.data = [];
+            this.pullUp();
         }
     },
     components: {

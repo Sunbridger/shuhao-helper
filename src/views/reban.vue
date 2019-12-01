@@ -8,12 +8,22 @@
 </style>
 <template>
     <div class="co-visit-data-box">
-        <div id="visit-chart" style="width: 100%; height: 350px;"></div>
-        <div v-if="todayhotData.length">
-            <div class="todayhot-box" v-for="el in todayhotData" :key="el.text">
-                <p>{{el.text}} <i>热度{{el.num}}</i> </p>
+        <el-card>
+            <div id="visit-chart" style="width: 100%; height: 350px;"></div>
+        </el-card>
+        <el-card  v-if="todayhotData.length">
+            <!-- <el-tabs v-model="day">
+                <el-tab-pane label="今日热点" name="first">今日热点</el-tab-pane>
+                <el-tab-pane label="昨日热点" name="second">昨日热点</el-tab-pane>
+            </el-tabs> -->
+            <div>
+                <h4>今日热点：</h4>
+                <div class="todayhot-box" v-for="el in todayhotData" :key="el.text">
+                    <p>{{el.text}} <i>热度{{el.num}}</i> </p>
+                </div>
             </div>
-        </div>
+        </el-card>
+        <div class="refress" @click="reload">刷新</div>
     </div>
 </template>
 
@@ -30,6 +40,9 @@ export default {
         };
     },
     methods: {
+        reload() {
+            this.init();
+        },
         drawCategoryChart() {
             const this_ = this;
             const visitChart = echarts.init(document.getElementById('visit-chart'));
@@ -69,6 +82,8 @@ export default {
         },
         getVisitData() {
             return get('/gethot').then(({data}) => {
+                this.xAxisDataForVisit = [];
+                this.yAxisDataForVisit = [];
                 data.forEach((item) => {
                     this.xAxisDataForVisit.push(item.text);
                     this.yAxisDataForVisit.push(item.num);
