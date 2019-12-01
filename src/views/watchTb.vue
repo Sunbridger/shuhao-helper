@@ -6,6 +6,7 @@
         margin-top: 30px;
     }
     .flex-box {
+        display: flex;
         justify-content: space-around;
         margin-bottom: 20px;
     }
