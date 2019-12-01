@@ -50,7 +50,7 @@ export default {
                 return;
             }
             get('/getJDinfo', {good_url}).then(({data}) => {
-                if (!data) {
+                if (!data.good_title) {
                     this.$message('商品链接有误，请重试');
                 } else {
                     this.good = data;
