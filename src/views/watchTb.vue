@@ -53,12 +53,12 @@ export default {
                     this.$message('商品链接有误，请重试');
                 } else {
                     this.good = data;
-                    this.load = false;
                 }
             }).catch(() => {
                 this.url = '';
-                this.load = false;
                 this.$message('暂时不支持搞活动的商品 敬请期待');
+            }).finally(() => {
+                this.load = false;
             });
         },
         init() {
