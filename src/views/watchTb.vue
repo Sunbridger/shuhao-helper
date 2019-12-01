@@ -44,13 +44,17 @@ export default {
         submit() {
             this.load = true;
             let good_url = this.url.split('?')[0];
-            if (!good_url) {
-                this.$message('输入正确的链接');
+            if (!good_url.includes('https')) {
+                this.$message('请输入JD商品的链接');
                 return;
             }
-            get('/getJDinfo', {good_url}).then(res => {
-                this.good = res.data;
-                this.load = false;
+            get('/getJDinfo', {good_url}).then(({data}) => {
+                if (!data) {
+                    this.$message('商品链接有误，请重试');
+                } else {
+                    this.good = data;
+                    this.load = false;
+                }
             }).catch(() => {
                 this.url = '';
                 this.load = false;
