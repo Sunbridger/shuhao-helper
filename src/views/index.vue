@@ -16,6 +16,7 @@
     }
     .swiper-slide {
         height: 100vh;
+        overflow-y: scroll;
     }
 </style>
 
