@@ -80,7 +80,6 @@ export default {
                     data: this_.yAxisDataForVisit,
                     type: 'line',
                     smooth: true,
-                    symbol: 'none',
                     sampling: 'average',
                     itemStyle: {
                         color: 'rgb(255, 70, 131)'
