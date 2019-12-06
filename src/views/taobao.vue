@@ -16,9 +16,6 @@
         line-height: 45px;
         color: #909399;
         font-size: 12px;
-        position: fixed;
-        bottom: 20px;
-        left: 8px;
     }
     .myflex {
         display: flex;
@@ -31,35 +28,30 @@
     .red-text {
         color: red;
     }
-    .refress {
-        background: rgba(221, 122, 23, .6);
-        border-radius: 50%;
-        width: 45px;
-        height: 45px;
-        text-align: center;
-        line-height: 45px;
-        color: #909399;
-        font-size: 12px;
-        position: fixed;
-        bottom: 20px;
-        right: 8px;
+    .flex {
+        display: flex;
+        justify-content: space-between;
     }
 </style>
 <template>
-    <div class="pg-taobao">
-        <my-scroll :pullUp="pullUp" className="myflex">
-            <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
-                <el-image :src="item.good_img"></el-image>
-                <el-link :href="item.good_url">{{item.good_title}}</el-link>
-                <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
-                <p>当前价格：{{item.tit_price}}</p>
-                <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
-                <p v-else class="gray">价格暂时无变动哦</p>
+    <swiper-slide>
+        <div class="pg-taobao">
+            <my-scroll :pullUp="pullUp" className="myflex">
+                <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
+                    <el-image :src="item.good_img"></el-image>
+                    <el-link :href="item.good_url">{{item.good_title}}</el-link>
+                    <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
+                    <p>当前价格：{{item.tit_price}}</p>
+                    <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
+                    <p v-else class="gray">价格暂时无变动哦</p>
+                </div>
+            </my-scroll>
+            <div class="flex">
+                <div class="tip-circle" @click="changeStyle">切换</div>
+                <div class="tip-circle" @click="reload">刷新</div>
             </div>
-        </my-scroll>
-        <div class="tip-circle" @click="changeStyle">切换</div>
-        <div class="refress" @click="reload">刷新</div>
-    </div>
+        </div>
+    </swiper-slide>
 </template>
 <script>
 

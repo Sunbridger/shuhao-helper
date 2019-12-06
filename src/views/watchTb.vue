@@ -12,21 +12,23 @@
     }
 </style>
 <template>
-    <div class="pg-watchTb">
-        <div class="flex flex-box">
-            <el-input clearable v-model="url" placeholder="请输入链接"></el-input>
-            <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
-        </div>
-        <div v-if="good.good_url">
-            <el-image :src="good.good_img"></el-image>
-            <el-link :href="good.good_url">{{good.good_title}}</el-link>
+    <swiper-slide>
+        <div class="pg-watchTb">
             <div class="flex flex-box">
-                <p>当前售价：{{good.tit_price}}</p>
-                <p v-if="good.new_price">最新价格：{{good.new_price}}</p>
-                <p v-else>价格暂时无变动哦~</p>
+                <el-input clearable v-model="url" placeholder="请输入链接"></el-input>
+                <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
+            </div>
+            <div v-if="good.good_url">
+                <el-image :src="good.good_img"></el-image>
+                <el-link :href="good.good_url">{{good.good_title}}</el-link>
+                <div class="flex flex-box">
+                    <p>当前售价：{{good.tit_price}}</p>
+                    <p v-if="good.new_price">最新价格：{{good.new_price}}</p>
+                    <p v-else>价格暂时无变动哦~</p>
+                </div>
             </div>
         </div>
-    </div>
+    </swiper-slide>
 </template>
 <script>
 

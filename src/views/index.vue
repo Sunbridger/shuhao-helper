@@ -14,38 +14,62 @@
     .el-tabs__nav {
         margin: auto;
     }
+    .swiper-slide {
+        height: 100vh;
+    }
 </style>
 
 <template>
     <div>
         <div class="index-box">
-            <el-tabs v-model="activeName" @tab-click="handleClick">
-                <el-tab-pane label="监视JD商品" name="/watchTb"></el-tab-pane>
-                <el-tab-pane label="收藏商品" name="/taobao"></el-tab-pane>
-                <el-tab-pane label="热榜可视化" name="/reban"></el-tab-pane>
+            <el-tabs v-model="activeIndex" @tab-click="handleClick">
+                <el-tab-pane label="监视JD商品" name="0"></el-tab-pane>
+                <el-tab-pane label="收藏商品" name="1"></el-tab-pane>
+                <el-tab-pane label="热榜可视化" name="2"></el-tab-pane>
             </el-tabs>
         </div>
-        <keep-alive>
-            <router-view />
-        </keep-alive>
+        <swiper :options="swiperOption" ref="mySwiper">
+            <swiper-slide>
+                <watchTb />
+            </swiper-slide>
+            <swiper-slide>
+                <taobao />
+            </swiper-slide>
+            <swiper-slide>
+                <reban />
+            </swiper-slide>
+        </swiper>
     </div>
 </template>
 
 <script>
 
+import taobao from './taobao';
+import reban from './reban';
+import watchTb from './watchTb';
+
 export default {
     data() {
         return {
-            activeName: this.$route.path
+            swiperOption: {
+                on: {
+                    slideChangeTransitionStart: () => {
+                        this.activeIndex = String(this.$refs.mySwiper.swiper.realIndex);
+                    }
+                }
+            },
+            activeIndex: '0'
         }
     },
     methods: {
         handleClick() {
-            if (this.activeName === this.$route.path) return;
-            this.$router.push({
-                name: this.activeName
-            })
+            this.$refs.mySwiper.swiper.slideTo(this.activeIndex);
         }
+    },
+    components: {
+        taobao,
+        reban,
+        watchTb
     }
 }
 </script>

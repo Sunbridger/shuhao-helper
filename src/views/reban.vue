@@ -2,20 +2,33 @@
     i {
         color: #F56C6C;
     }
+    .refress {
+        background: rgba(221, 122, 23, .6);
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        color: #909399;
+        font-size: 12px;
+        float: right;
+    }
 </style>
 <template>
-    <div class="co-visit-data-box">
-        <div id="visit-chart" style="width: 100%; height: 400px;"></div>
-        <el-card  v-if="todayhotData.length">
-            <div>
-                <h4>今日热点：</h4>
-                <div v-for="el in todayhotData" :key="el.text">
-                    <p>{{el.text}} <i>{{el.num}}</i> </p>
+    <swiper-slide>
+        <div class="co-visit-data-box">
+            <div id="visit-chart" style="width: 100%; height: 400px;"></div>
+            <el-card  v-if="todayhotData.length">
+                <div class="refress" @click="reload">刷新</div>
+                <div>
+                    <h4>今日热点：</h4>
+                    <div v-for="el in todayhotData" :key="el.text">
+                        <p>{{el.text}} <i>{{el.num}}</i> </p>
+                    </div>
                 </div>
-            </div>
-        </el-card>
-        <div class="refress" @click="reload">刷新</div>
-    </div>
+            </el-card>
+        </div>
+    </swiper-slide>
 </template>
 
 <script>
