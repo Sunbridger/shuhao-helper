@@ -12,10 +12,6 @@
             <div id="visit-chart" style="width: 100%; height: 350px;"></div>
         </el-card>
         <el-card  v-if="todayhotData.length">
-            <!-- <el-tabs v-model="day">
-                <el-tab-pane label="今日热点" name="first">今日热点</el-tab-pane>
-                <el-tab-pane label="昨日热点" name="second">昨日热点</el-tab-pane>
-            </el-tabs> -->
             <div>
                 <h4>今日热点：</h4>
                 <div class="todayhot-box" v-for="el in todayhotData" :key="el.text">
