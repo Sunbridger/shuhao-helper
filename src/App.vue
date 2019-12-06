@@ -4,7 +4,6 @@
 
 <template>
     <div id="app">
-        <div @click="share">分享</div>
         <router-view></router-view>
     </div>
 </template>
