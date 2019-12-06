@@ -29,6 +29,7 @@ export default {
         },
         created() {
             if (navigator.userAgent.indexOf("Html5Plus") > -1) {
+                alert(JSON.stringify(plus))
                 plus.nativeUI.alert('message', this.share, '标题处哦', '按钮显示内容');
             }
         }
