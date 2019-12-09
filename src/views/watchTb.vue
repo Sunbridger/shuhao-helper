@@ -23,8 +23,6 @@
                 <el-link :href="good.good_url">{{good.good_title}}</el-link>
                 <div class="flex flex-box">
                     <p>当前售价：{{good.tit_price}}</p>
-                    <p v-if="good.new_price">最新价格：{{good.new_price}}</p>
-                    <p v-else>价格暂时无变动哦~</p>
                 </div>
             </div>
         </div>
