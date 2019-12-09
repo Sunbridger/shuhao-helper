@@ -18,8 +18,8 @@
     <swiper-slide>
         <div class="co-visit-data-box">
             <div id="visit-chart" style="width: 100%; height: 400px;"></div>
+            <div class="refress" @click="reload">刷新</div>
             <el-card  v-if="todayhotData.length">
-                <div class="refress" @click="reload">刷新</div>
                 <div>
                     <h4>今日热点：</h4>
                     <div v-for="el in todayhotData" :key="el.text">
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+
 import echarts from 'echarts';
 import { get } from 'api';
 
