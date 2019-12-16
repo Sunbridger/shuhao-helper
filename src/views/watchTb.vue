@@ -18,6 +18,7 @@
                 <el-input clearable v-model="url" placeholder="请输入链接"></el-input>
                 <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
             </div>
+            <div v-if="svgHtml" v-html="svgHtml"></div>
             <div v-if="good.good_url">
                 <el-image :src="good.good_img"></el-image>
                 <el-link :href="good.good_url">{{good.good_title}}</el-link>
@@ -37,7 +38,8 @@ export default {
         return {
             url: '',
             good: {},
-            load: false
+            load: false,
+            svgHtml: false
         }
     },
     methods: {
@@ -60,14 +62,18 @@ export default {
                 this.$message('暂时不支持搞活动的商品 敬请期待');
             }).finally(() => {
                 this.load = false;
+                this.getCap();
             });
         },
-        init() {
-
+        getCap() {
+            get('/getcap').then(({data}) => {
+                this.text = data.text;
+                this.svgHtml = data.data;
+            })
         }
     },
     created() {
-
+        this.getCap();
     },
     components: {
 
