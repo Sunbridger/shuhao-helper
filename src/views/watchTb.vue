@@ -31,6 +31,16 @@
 </template>
 <script>
 
+/**
+ * @param {String} url jd商品链接
+ * @param {Object} good jd商品的属性
+ * @param {Boolean} load 是否可点击加载中判断
+ * @param {String} svgHtml svg的验证码
+ * @param {Object} methods
+ * @param {Function} methods.submit 提交商品
+ * @param {Function} methods.getCap 获取验证码
+ */
+
 import { get } from 'api';
 
 export default {
@@ -39,7 +49,7 @@ export default {
             url: '',
             good: {},
             load: false,
-            svgHtml: false
+            svgHtml: ''
         }
     },
     methods: {
