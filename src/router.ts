@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from 'views/login.vue';
+// import Login from 'views/login.vue';
 import Me from 'views/me.vue';
 import Index from 'views/index.vue';
 import taoBao from 'views/taobao.vue';
-import hot from 'views/hot.vue';
+// import hot from 'views/hot.vue';
 import reban from 'views/reban.vue';
 import watchTb from 'views/watchTb.vue';
 Vue.use(Router);
