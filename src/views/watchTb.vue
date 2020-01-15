@@ -10,6 +10,12 @@
         justify-content: space-around;
         margin-bottom: 20px;
     }
+    .center-share {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 </style>
 <template>
     <swiper-slide>
@@ -27,6 +33,7 @@
                     <p>当前售价：{{good.tit_price}}</p>
                 </div>
             </div>
+            <el-button class="center-share" @click="shareApp">分享App</el-button>
         </div>
     </swiper-slide>
 </template>
@@ -43,6 +50,7 @@
  */
 
 import { get } from 'api';
+import '../../plusShare';
 
 export default {
     data() {
@@ -88,6 +96,20 @@ export default {
                 this.text = data.text;
                 this.svgHtml = data.data;
             })
+        },
+        shareApp() {
+            if(navigator.userAgent.indexOf("Html5Plus") > -1) {
+                window.plusShare({
+                    title: '数好助手',
+                    content: '好助手，好帮手，一体消息，实时掌握',
+                    href: location.href,
+                    thumbs: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQx9H29DjWPFsLq3iAXwXOZgvrqev1UxNSJmQmLVOdsAVymn0w&s'] //分享缩略图
+                }, function() {
+                    this.$message('分享成功咯');
+                });
+            } else {
+                this.$message('该系统暂不支持分享！');
+            }
         }
     },
     created() {
