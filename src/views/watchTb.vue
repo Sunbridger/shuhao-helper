@@ -14,11 +14,12 @@
 <template>
     <swiper-slide>
         <div class="pg-watchTb">
-            <div class="flex flex-box">
-                <el-input clearable v-model="url" placeholder="请输入链接"></el-input>
-                <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
+            <div>
+                <el-input clearable v-model="url" placeholder="请输入商品链接"></el-input>
+                <el-input clearable v-model="verification" placeholder="请输入验证码"></el-input>
             </div>
             <div v-if="svgHtml" v-html="svgHtml"></div>
+            <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
             <div v-if="good.good_url">
                 <el-image :src="good.good_img"></el-image>
                 <el-link :href="good.good_url">{{good.good_title}}</el-link>
@@ -49,11 +50,17 @@ export default {
             url: '',
             good: {},
             load: false,
-            svgHtml: ''
+            svgHtml: '',
+            text: '',
+            verification: ''
         }
     },
     methods: {
         submit() {
+            if (this.verification !== this.text) {
+                this.$message('请输入验证码');
+                return;
+            }
             this.load = true;
             let good_url = this.url.split('?')[0];
             if (!good_url.includes('https')) {
@@ -72,6 +79,7 @@ export default {
                 this.$message('暂时不支持搞活动的商品 敬请期待');
             }).finally(() => {
                 this.load = false;
+                this.verification = '';
                 this.getCap();
             });
         },
