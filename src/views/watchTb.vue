@@ -101,7 +101,7 @@ export default {
             if(navigator.userAgent.indexOf("Html5Plus") > -1) {
                 window.plusShare({
                     title: '数好助手',
-                    content: '好助手，好帮手，一体消息，实时掌握',
+                    content: '好助手，好帮手，一体消息，实时掌握，欢迎👏👏👏',
                     href: location.href,
                     thumbs: ['http://img-cdn-qiniu.dcloud.net.cn/icon3.png']
                 }, function() {
