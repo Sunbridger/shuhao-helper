@@ -8,6 +8,13 @@ module.exports = {
                 views: path('src/views'),
                 api: path('src/api')
             }
-        }
+        };
+        config.externals = {
+            echarts: 'echarts',
+            axios: 'axios',
+            vue: 'Vue',
+            'vue-router': 'VueRouter',
+            _: 'lodash'
+        };
     }
 }
