@@ -103,7 +103,7 @@ export default {
                     title: '数好助手',
                     content: '好助手，好帮手，一体消息，实时掌握',
                     href: location.href,
-                    thumbs: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQx9H29DjWPFsLq3iAXwXOZgvrqev1UxNSJmQmLVOdsAVymn0w&s'] //分享缩略图
+                    thumbs: ['http://img-cdn-qiniu.dcloud.net.cn/icon3.png']
                 }, function() {
                     this.$message('分享成功咯');
                 });
