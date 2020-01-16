@@ -5,10 +5,6 @@
     .row-p {
         margin: 25px 0;
     }
-    .tip-text {
-        color: #ccc;
-        margin-top: 50px;
-    }
 </style>
 
 <template>
@@ -29,7 +25,6 @@
                 inactive-color="#ccc">
             </el-switch>
         </div>
-        <center class="tip-text">tip: 设置只在重启App后生效</center>
     </div>
 </template>
 
