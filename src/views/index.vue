@@ -135,8 +135,8 @@ export default {
         shezhi
     },
     created() {
-        this.a = plus.os.name;
-        console.log(plus.os.name)
+        this.a = JSON.stringify(plus.os.name);
+        alert(JSON.stringify(plus.os.name))
     }
 }
 </script>
