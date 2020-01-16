@@ -4,7 +4,7 @@
         font: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
     }
     .index-box {
-        z-index: 9999;
+        z-index: 999;
         position: fixed;
         width: 100%;
         background: white;

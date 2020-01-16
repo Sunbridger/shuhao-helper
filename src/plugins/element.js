@@ -7,7 +7,8 @@ import {
     Image,
     Tabs,
     TabPane,
-    Card
+    Card,
+    Switch
 } from 'element-ui'
 
 Vue.use(Button);
@@ -17,4 +18,5 @@ Vue.use(Input);
 Vue.use(Tabs);
 Vue.use(Card);
 Vue.use(TabPane);
+Vue.use(Switch);
 Vue.prototype.$message = Message;

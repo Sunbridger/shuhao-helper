@@ -16,11 +16,15 @@
         vertical-align: -3px;
         margin: 0 5px;
     }
+    .ele-index {
+        color: #f26d5f;
+        margin-right: 4px;
+    }
     .text-num {
         color: #808080;
         margin-left: 10px;
     }
-    .el-card__body {
+    .text-body-box {
         padding: 25px 12px 0 12px;
         height: 100%;
     }
@@ -33,12 +37,13 @@
     <swiper-slide>
         <div class="co-visit-data-box">
             <!-- <div id="visit-chart" style="width: 100%; height: 400px;"></div> -->
-            <el-card  v-if="todayhotData.length">
-                <div>
+            <!-- <el-card  v-if="todayhotData.length"> -->
+                <div class="text-body-box" v-if="todayhotData.length">
                     <img class="is-img-center" src="https://img.t.sinajs.cn/t4/appstyle/searchpc/css/pc/img/search_logo.png" @click="reload" />
-                    <div v-for="el in todayhotData" :key="el.text">
+                    <div v-for="(el, index) in todayhotData" :key="el.text">
                         <p>
                             <el-link :href="el.link">
+                                <span class="ele-index">{{index+1}}.</span>
                                 {{el.text}}
                                 <span class="text-num">{{el.num}}</span>
                                 <img v-if="el.icon" :src="el.icon" class="icon-text" />
@@ -46,7 +51,7 @@
                         </p>
                     </div>
                 </div>
-            </el-card>
+            <!-- </el-card> -->
         </div>
     </swiper-slide>
 </template>

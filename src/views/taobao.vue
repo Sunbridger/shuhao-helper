@@ -32,6 +32,9 @@
         display: flex;
         justify-content: space-between;
     }
+    .el-message-box {
+        width: 222px;
+    }
 </style>
 <template>
     <swiper-slide>
@@ -43,7 +46,7 @@
                     <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
                     <p>当前价格：{{item.tit_price}}</p>
                     <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
-                    <p v-else class="gray">价格暂时无变动哦</p>
+                    <p v-else class="gray">价格暂时无波动~</p>
                 </div>
             </my-scroll>
             <div class="flex">
@@ -95,7 +98,7 @@ export default {
                     type: 'success'
                 });
                 this.reload();
-            })
+            });
         },
         formatePrice(str) {
             return str.split(',').pop();
@@ -106,6 +109,9 @@ export default {
             this.data = [];
             this.pullUp();
         }
+    },
+    created() {
+        this.excStyle = localStorage.getItem('sort') === 'true' ? false : true;
     },
     components: {
         MyScroll
