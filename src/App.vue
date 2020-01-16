@@ -15,5 +15,6 @@
 
 <script>
 import VueRouter from "vue-router";
+
 export default {};
 </script>

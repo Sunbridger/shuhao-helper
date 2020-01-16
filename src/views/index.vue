@@ -50,6 +50,7 @@
                 <el-tab-pane label="微博热搜" name="2"></el-tab-pane>
             </el-tabs>
         </div> -->
+        {{a}}--------
         <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide>
                 <watchTb />
@@ -107,7 +108,8 @@ export default {
                 value: '设置'
             }],
             sort: false,
-            addItem: false
+            addItem: false,
+            a: 0
         }
     },
     methods: {
@@ -131,6 +133,10 @@ export default {
         reban,
         watchTb,
         shezhi
+    },
+    created() {
+        this.a = plus.os.name;
+        console.log(plus.os.name)
     }
 }
 </script>

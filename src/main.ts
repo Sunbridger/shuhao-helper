@@ -8,6 +8,7 @@ import router from './router'
 
 Vue.use(VueRouter);
 Vue.use(VueAwesomeSwiper);
+
 new Vue({
     router,
     render: h => h(App)
