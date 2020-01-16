@@ -40,7 +40,7 @@
     <swiper-slide>
         <div class="pg-taobao">
             <my-scroll :pullUp="pullUp" className="myflex">
-                <div :class="excStyle ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
+                <div :class="sort ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
                     <el-image :src="item.good_img"></el-image>
                     <el-link :href="item.good_url">{{item.good_title}}</el-link>
                     <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
@@ -49,10 +49,6 @@
                     <p v-else class="gray">价格暂时无波动~</p>
                 </div>
             </my-scroll>
-            <div class="flex">
-                <div class="tip-circle" @click="changeStyle">切换</div>
-                <div class="tip-circle" @click="reload">刷新</div>
-            </div>
         </div>
     </swiper-slide>
 </template>
@@ -68,8 +64,17 @@ export default {
             data: [],
             index: 0,
             pageSize: 20,
-            canLoad: true,
-            excStyle: true
+            canLoad: true
+        }
+    },
+    props: {
+        sort: {
+            default: () => false,
+            type: Boolean
+        },
+        addItem: {
+            default: () => false,
+            type: Boolean
         }
     },
     methods: {
@@ -87,9 +92,6 @@ export default {
                     this.canLoad = false;
                 }
             });
-        },
-        changeStyle() {
-            this.excStyle = !this.excStyle;
         },
         deletetaobao(good_url) {
             get('/deletetaobao', {good_url}).finally(() => {
@@ -110,8 +112,12 @@ export default {
             this.pullUp();
         }
     },
-    created() {
-        this.excStyle = localStorage.getItem('sort') === 'true' ? false : true;
+    watch: {
+        addItem(v) {
+            if (v) {
+                this.reload();
+            }
+        }
     },
     components: {
         MyScroll

@@ -55,7 +55,7 @@
                 <watchTb />
             </swiper-slide>
             <swiper-slide>
-                <taobao />
+                <taobao :sort="sort" :addItem="addItem"/>
             </swiper-slide>
             <swiper-slide>
                 <reban />
@@ -105,11 +105,19 @@ export default {
             }, {
                 key: 3,
                 value: '设置'
-            }]
+            }],
+            sort: false,
+            addItem: false
         }
     },
     methods: {
         handleClick(i) {
+            if (i === 1) {
+                this.sort = localStorage.getItem('sort') === 'true' ? false : true;
+                this.addItem = localStorage.getItem('addItem') === 'true' ? true : false;
+            } else {
+                localStorage.setItem('addItem', false);
+            }
             this.$refs.mySwiper.swiper.slideTo(i);
         }
     },

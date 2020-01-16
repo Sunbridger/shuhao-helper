@@ -88,6 +88,7 @@ export default {
                         this.$message('商品链接有误，请重试');
                     } else {
                         this.good = data;
+                        localStorage.setItem('addItem', true);
                     }
                 }).catch(() => {
                     this.url = '';

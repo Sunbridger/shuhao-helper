@@ -29,7 +29,7 @@
                 inactive-color="#ccc">
             </el-switch>
         </div>
-        <center class="tip-text">tip: 设置只在重启App后或者<span @click="reload" class="is-active-tab">点我</span>立即生效</center>
+        <center class="tip-text">tip: 设置只在重启App后生效</center>
     </div>
 </template>
 
@@ -42,11 +42,6 @@ export default {
         return {
             care,
             sort
-        }
-    },
-    methods: {
-        reload() {
-            location.reload();
         }
     },
     watch: {
