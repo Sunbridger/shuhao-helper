@@ -1,7 +1,4 @@
 <style>
-    i {
-        color: #F56C6C;
-    }
     .refress {
         background: rgba(221, 122, 23, .6);
         border-radius: 50%;
@@ -13,17 +10,40 @@
         font-size: 12px;
         float: right;
     }
+    .icon-text {
+        width: 16px;
+        height: 16px;
+        vertical-align: -3px;
+        margin: 0 5px;
+    }
+    .text-num {
+        color: #808080;
+        margin-left: 10px;
+    }
+    .el-card__body {
+        padding: 25px 12px 0 12px;
+        height: 100%;
+    }
+    .is-img-center {
+        margin: 0 auto;
+        display: block;
+    }
 </style>
 <template>
     <swiper-slide>
         <div class="co-visit-data-box">
-            <div id="visit-chart" style="width: 100%; height: 400px;"></div>
-            <div class="refress" @click="reload">刷新</div>
+            <!-- <div id="visit-chart" style="width: 100%; height: 400px;"></div> -->
             <el-card  v-if="todayhotData.length">
                 <div>
-                    <h4>今日热点：</h4>
+                    <img class="is-img-center" src="https://img.t.sinajs.cn/t4/appstyle/searchpc/css/pc/img/search_logo.png" @click="reload" />
                     <div v-for="el in todayhotData" :key="el.text">
-                        <p>{{el.text}} <i>{{el.num}}</i> </p>
+                        <p>
+                            <el-link :href="el.link">
+                                {{el.text}}
+                                <span class="text-num">{{el.num}}</span>
+                                <img :src="el.icon" class="icon-text" />
+                            </el-link>
+                        </p>
                     </div>
                 </div>
             </el-card>
@@ -127,8 +147,8 @@ export default {
             });
         },
         async init() {
-            await this.getVisitData();
-            this.drawCategoryChart();
+            // await this.getVisitData();
+            // this.drawCategoryChart();
             this.todayhot();
         }
     },

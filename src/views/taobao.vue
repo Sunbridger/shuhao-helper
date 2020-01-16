@@ -1,7 +1,7 @@
 <style>
     .pg-taobao {
         padding: 12px;
-        padding-top: 55px;
+        padding-top: 25px;
         position: relative;
     }
     .taobao-box {

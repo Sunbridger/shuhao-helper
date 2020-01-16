@@ -1,6 +1,6 @@
 <style>
     .pg-watchTb {
-        padding: 70px 30px;
+        padding: 25px 12px 0 12px;
     }
     .el-message {
         margin-top: 30px;
@@ -16,16 +16,23 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    .mt12 {
+        margin-top: 12px;
+    }
 </style>
 <template>
     <swiper-slide>
         <div class="pg-watchTb">
             <div>
                 <el-input clearable v-model="url" placeholder="请输入商品链接"></el-input>
-                <el-input clearable v-model="verification" placeholder="请输入验证码"></el-input>
+                <div class="flex mt12">
+                    <el-input clearable v-model="verification" placeholder="请输入验证码"></el-input>
+                    <div v-if="svgHtml" v-html="svgHtml"></div>
+                </div>
             </div>
-            <div v-if="svgHtml" v-html="svgHtml"></div>
+
             <el-button type="primary" :disabled="load" :loading="load" @click="submit">{{load?'加载商品信息中...': '提交'}}</el-button>
+            <el-button @click="shareApp">分享App</el-button>
             <div v-if="good.good_url">
                 <el-image :src="good.good_img"></el-image>
                 <el-link :href="good.good_url">{{good.good_title}}</el-link>
@@ -33,7 +40,6 @@
                     <p>当前售价：{{good.tit_price}}</p>
                 </div>
             </div>
-            <el-button class="center-share" @click="shareApp">分享App</el-button>
         </div>
     </swiper-slide>
 </template>
@@ -65,31 +71,35 @@ export default {
     },
     methods: {
         submit() {
-            if (this.verification !== this.text) {
-                this.$message('请输入验证码');
-                return;
-            }
-            this.load = true;
-            let good_url = this.url.split('?')[0];
-            if (!good_url.includes('https')) {
-                this.$message('请输入JD商品的链接');
-                this.load = false;
-                return;
-            }
-            get('/getJDinfo', {good_url}).then(({data}) => {
-                if (!data.good_title) {
-                    this.$message('商品链接有误，请重试');
-                } else {
-                    this.good = data;
+            if (this.verification) {
+                if (this.verification.toLocaleLowerCase() !== this.text.toLocaleLowerCase()) {
+                    this.$message('验证码错误');
+                    return;
                 }
-            }).catch(() => {
-                this.url = '';
-                this.$message('暂时不支持搞活动的商品 敬请期待');
-            }).finally(() => {
-                this.load = false;
-                this.verification = '';
-                this.getCap();
-            });
+                this.load = true;
+                let good_url = this.url.split('?')[0];
+                if (!good_url.includes('https')) {
+                    this.$message('请输入JD商品的链接');
+                    this.load = false;
+                    return;
+                }
+                get('/getJDinfo', {good_url}).then(({data}) => {
+                    if (!data.good_title) {
+                        this.$message('商品链接有误，请重试');
+                    } else {
+                        this.good = data;
+                    }
+                }).catch(() => {
+                    this.url = '';
+                    this.$message('暂时不支持搞活动的商品 敬请期待');
+                }).finally(() => {
+                    this.load = false;
+                    this.verification = '';
+                    this.getCap();
+                });
+            } else {
+                this.$message('请输入验证码');
+            }
         },
         getCap() {
             get('/getcap').then(({data}) => {
@@ -108,7 +118,7 @@ export default {
                     this.$message('分享成功咯');
                 });
             } else {
-                this.$message('该系统暂不支持分享！');
+                this.$message('该版本暂不支持分享，请下载最新app端');
             }
         }
     },
