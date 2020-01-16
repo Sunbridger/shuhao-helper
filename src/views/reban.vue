@@ -41,7 +41,7 @@
                             <el-link :href="el.link">
                                 {{el.text}}
                                 <span class="text-num">{{el.num}}</span>
-                                <img :src="el.icon" class="icon-text" />
+                                <img v-if="el.icon" :src="el.icon" class="icon-text" />
                             </el-link>
                         </p>
                     </div>
