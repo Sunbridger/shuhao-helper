@@ -112,13 +112,18 @@ export default {
     },
     methods: {
         handleClick(i) {
+            this.activeIndex = i;
+            this.$refs.mySwiper.swiper.slideTo(i);
+        }
+    },
+    watch: {
+        activeIndex() {
             if (i === 1) {
                 this.sort = localStorage.getItem('sort') === 'true' ? false : true;
                 this.addItem = localStorage.getItem('addItem') === 'true' ? true : false;
             } else {
                 localStorage.setItem('addItem', false);
             }
-            this.$refs.mySwiper.swiper.slideTo(i);
         }
     },
     components: {
