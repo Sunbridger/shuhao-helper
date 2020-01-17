@@ -42,7 +42,7 @@ export default {
     data() {
         const care = localStorage.getItem('care') === 'true' ? true : false;
         const sort = localStorage.getItem('sort') === 'true' ? true : false;
-        const isLogin = localStorage.getItem('isLogin') === 'true' ? true : false;
+        const isLogin = localStorage.getItem('isLogin') === 'true' ? false : true;
         return {
             care,
             sort,
