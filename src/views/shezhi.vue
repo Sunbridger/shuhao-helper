@@ -25,6 +25,14 @@
                 inactive-color="#ccc">
             </el-switch>
         </div>
+        <div class="row-p flex">
+            <span>退出登录(重启生效)</span>
+            <el-switch
+                v-model="isLogin"
+                active-color="#409EFF"
+                inactive-color="#ccc">
+            </el-switch>
+        </div>
     </div>
 </template>
 
@@ -34,9 +42,11 @@ export default {
     data() {
         const care = localStorage.getItem('care') === 'true' ? true : false;
         const sort = localStorage.getItem('sort') === 'true' ? true : false;
+        const isLogin = localStorage.getItem('sort') === 'true' ? true : false;
         return {
             care,
-            sort
+            sort,
+            isLogin
         }
     },
     watch: {
@@ -45,6 +55,9 @@ export default {
         },
         sort(val) {
             localStorage.setItem('sort', val)
+        },
+        isLogin(val) {
+            localStorage.removeItem('isLogin')
         }
     }
 };

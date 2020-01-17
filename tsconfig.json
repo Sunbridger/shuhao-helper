@@ -15,7 +15,8 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "variable": ["./core/variable"]
     },
     "lib": [
       "esnext",
@@ -24,7 +25,7 @@
       "scripthost"
     ],
     "noImplicitAny": false,
-    "outDir": "./real", 
+    "outDir": "./real",
   },
   "include": [
     "./src/**/*.ts",

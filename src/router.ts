@@ -7,11 +7,11 @@ import taoBao from 'views/taobao.vue';
 // import hot from 'views/hot.vue';
 import reban from 'views/reban.vue';
 import watchTb from 'views/watchTb.vue';
+import Variable from 'variable';
 Vue.use(Router);
 
-
 const router = new Router({
-    mode: 'hash',
+    mode: 'history',
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
@@ -24,14 +24,11 @@ const router = new Router({
     },
     routes: [{
         path: '/',
-        component: Index,
-        children: [
-            { path: '', redirect: '/taobao' },
-            { path: '/taobao', component: taoBao, name: '/taobao', meta: { keepAlive: true} },
-            { path: '/reban', component: reban, name: '/reban', meta: { keepAlive: true} },
-            { path: '/watchTb', component: watchTb, name: '/watchTb', meta: { keepAlive: true} }
-        ]
-    }],
+        component: Index
+    }, {
+        path: '/*',
+        redirect: '/'
+    }]
 });
 
 router.beforeEach((to, from, next) => {

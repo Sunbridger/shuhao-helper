@@ -4,9 +4,10 @@ module.exports = {
         config.resolve = {
             extensions: ['.vue', '.js', '.ts', '.json'],
             alias: {
-                components: path('src/components'),
-                views: path('src/views'),
-                api: path('src/api')
+                components: path('./src/components'),
+                views: path('./src/views'),
+                api: path('./src/api'),
+                variable: path('./core/variable')
             }
         };
         config.externals = {
