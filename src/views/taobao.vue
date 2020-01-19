@@ -44,9 +44,13 @@
                     <el-image :src="item.good_img"></el-image>
                     <el-link :href="item.good_url">{{item.good_title}}</el-link>
                     <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
+                    <el-button size="small" @click="item.showH = true" type="primary">价格趋势</el-button>
                     <p>当前价格：{{item.tit_price}}</p>
                     <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
                     <p v-else class="gray">价格暂时无波动~</p>
+                    <div v-if="item.showH">
+                        <p v-for="(row, index) in Object.keys(item.new_price)" :key="index">{{timeForm(item.new_price, index)}} : {{row}}</p>
+                    </div>
                 </div>
             </my-scroll>
         </div>
@@ -64,7 +68,8 @@ export default {
             data: [],
             index: 0,
             pageSize: 20,
-            canLoad: true
+            canLoad: true,
+            drawer: true
         }
     },
     props: {
@@ -86,6 +91,12 @@ export default {
                 pageSize
             }).then(({data}) => {
                 if (data.length) {
+                    data.forEach(row => {
+                        row.showH = false;
+                        if (row.new_price) {
+                            row.new_price = JSON.parse(row.new_price || '{}');
+                        }
+                    });
                     this.data = this.data.concat(data);
                     this.index++;
                 } else {
@@ -102,8 +113,23 @@ export default {
                 this.reload();
             });
         },
-        formatePrice(str) {
-            return str.split(',').pop();
+        timeForm(item, index) {
+            const t = Object.values(item);
+            const tt = new Date(t[index]);
+            const year = tt.getFullYear();
+            const month = tt.getMonth()+1;
+            const date = tt.getDate();
+            const hour = tt.getHours();
+            const minute = tt.getMinutes();
+            const second = tt.getSeconds();
+            return year + '/' + month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
+        },
+        formatePrice(obj) {
+            const arr = Object.keys(obj);
+            const arrv = Object.values(obj);
+            if (arr.length) {
+                return arr.length === 1 ? arr[0] : arr[arrv.indexOf(Math.max(...arrv))];
+            }
         },
         reload() {
             this.index = 0;
