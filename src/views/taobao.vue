@@ -68,7 +68,7 @@ export default {
         return {
             data: [],
             index: 0,
-            pageSize: 20,
+            pageSize: 10,
             canLoad: true,
             drawer: true
         }
