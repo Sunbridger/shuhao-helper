@@ -43,8 +43,10 @@
                 <div :class="sort ? 'taobao-box' : ''" v-for="item in data" :key="item.id">
                     <el-image :src="item.good_img"></el-image>
                     <el-link :href="item.good_url">{{item.good_title}}</el-link>
-                    <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
-                    <el-button size="small" @click="item.showH = true" type="primary">价格趋势</el-button>
+                    <div class="flex">
+                        <el-button size="small" @click="deletetaobao(item.good_url)" type="danger">不再关注</el-button>
+                        <el-button size="small" @click="item.showH = true" type="primary">价格趋势</el-button>
+                    </div>
                     <p>当前价格：{{item.tit_price}}</p>
                     <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
                     <div v-if="item.showH">
