@@ -50,7 +50,7 @@
                     <p>当前价格：{{item.tit_price}}</p>
                     <p v-if="item.new_price" class="red-text">最新价格：{{formatePrice(item.new_price)}}</p>
                     <div v-if="item.showH">
-                        <p v-for="(row, index) in Object.keys(item.new_price)" :key="index">{{timeForm(item.new_price, index)}} : {{row}}</p>
+                        <p v-for="(row, index) in Object.keys(item.new_price)" :key="index">{{timeForm(item.new_price, index)}}时售价为{{row}}</p>
                     </div>
                 </div>
             </my-scroll>
@@ -118,12 +118,13 @@ export default {
             const t = Object.values(item);
             const tt = new Date(t[index]);
             const year = tt.getFullYear();
-            const month = tt.getMonth()+1;
-            const date = tt.getDate();
-            const hour = tt.getHours();
-            const minute = tt.getMinutes();
-            const second = tt.getSeconds();
-            return year + '/' + month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
+            const month = tt.getMonth()+1 < 10 ? ('0' + tt.getMonth()+1) : tt.getMonth()+1;
+            const date = tt.getDate() < 10 ? ('0' + tt.getDate()) : tt.getDate();
+            // const hour = tt.getHours();
+            // const minute = tt.getMinutes();
+            // const second = tt.getSeconds();
+            // return year + '/' + month + '/' + date + ' ' + hour + ':' + minute + ':' + second;
+            return year + '/' + month + '/' + date;
         },
         formatePrice(obj) {
             const arr = Object.keys(obj);
