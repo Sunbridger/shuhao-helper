@@ -52,6 +52,19 @@
                     </div>
                 </div>
             <!-- </el-card> -->
+            <div class="text-body-box" v-if="bingduData.length">
+                <center>《病毒相关新闻》</center>
+                <div v-for="(el, index) in bingduData" :key="el.text">
+                    <p>
+                        <el-link :href="el.link">
+                            <span class="ele-index">{{index+1}}.</span>
+                            {{el.text}}
+                            <span class="text-num">{{el.num}}</span>
+                            <img v-if="el.icon" :src="el.icon" class="icon-text" />
+                        </el-link>
+                    </p>
+                </div>
+            </div>
         </div>
     </swiper-slide>
 </template>
@@ -66,7 +79,8 @@ export default {
         return {
             xAxisDataForVisit: [],
             yAxisDataForVisit: [],
-            todayhotData: []
+            todayhotData: [],
+            bingduData: []
         };
     },
     methods: {
@@ -149,6 +163,9 @@ export default {
         async todayhot() {
             get('/todayhot').then(({data}) => {
                 this.todayhotData = data;
+            });
+            get('/getVirus').then(({data}) => {
+                this.bingduData = data;
             });
         },
         async init() {
