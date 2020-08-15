@@ -5,6 +5,9 @@
     -webkit-user-select: none;
     -ms-user-select: none;
  }
+text {
+    -webkit-user-select: text !important
+}
 </style>
 
 <template>
