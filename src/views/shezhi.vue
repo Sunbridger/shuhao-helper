@@ -68,7 +68,11 @@ export default {
         },
         isDeep(val) {
             localStorage.setItem('isDeep', val);
-            document.body.style.backgroundColor = '#ccc';
+            if (val) {
+                document.body.style.backgroundColor = '#ccc';
+            } else {
+                document.body.style.backgroundColor = '#fff';
+            }
         },
         isLogin(val) {
             localStorage.removeItem('isLogin')
