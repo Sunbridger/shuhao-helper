@@ -161,9 +161,7 @@ export default {
             });
         },
         async todayhot() {
-            get('/todayhot', {
-                limit: 50
-            }).then(({data}) => {
+            get('/todayhot').then(({data}) => {
                 this.todayhotData = data;
             });
             get('/getVirus').then(({data}) => {
