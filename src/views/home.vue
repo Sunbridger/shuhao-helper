@@ -111,7 +111,7 @@ export default {
     },
     watch: {
         activeIndex(i) {
-            if (i === 1) {
+            if (Number(i) === 1) {
                 this.sort = localStorage.getItem('sort') === 'true' ? false : true;
                 this.addItem = localStorage.getItem('addItem') === 'true' ? true : false;
             } else {
