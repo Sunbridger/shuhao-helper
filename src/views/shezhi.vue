@@ -51,7 +51,7 @@ export default {
         const care = localStorage.getItem('care') === 'true' ? true : false;
         const sort = localStorage.getItem('sort') === 'true' ? true : false;
         const isLogin = localStorage.getItem('isLogin') === 'true' ? false : true;
-        const isDeep = localStorage.getItem('isDeep') === 'true' ? false : true;
+        const isDeep = localStorage.getItem('isDeep') === 'true' ? true : false;
         return {
             care,
             sort,
@@ -68,8 +68,7 @@ export default {
         },
         isDeep(val) {
             localStorage.setItem('isDeep', val);
-            document.body.style.backgroundColor = 'rgba(115 109 109, 0.45)';
-
+            document.body.style.backgroundColor = '#ccc';
         },
         isLogin(val) {
             localStorage.removeItem('isLogin')
