@@ -26,6 +26,14 @@
             </el-switch>
         </div>
         <div class="row-p flex">
+            <span>深色模式</span>
+            <el-switch
+                v-model="isDeep"
+                active-color="#409EFF"
+                inactive-color="#ccc">
+            </el-switch>
+        </div>
+        <div class="row-p flex">
             <span>退出登录(重启生效)</span>
             <el-switch
                 v-model="isLogin"
@@ -43,10 +51,12 @@ export default {
         const care = localStorage.getItem('care') === 'true' ? true : false;
         const sort = localStorage.getItem('sort') === 'true' ? true : false;
         const isLogin = localStorage.getItem('isLogin') === 'true' ? false : true;
+        const isDeep = localStorage.getItem('isDeep') === 'true' ? false : true;
         return {
             care,
             sort,
-            isLogin
+            isLogin,
+            isDeep
         }
     },
     watch: {
@@ -55,6 +65,11 @@ export default {
         },
         sort(val) {
             localStorage.setItem('sort', val)
+        },
+        isDeep(val) {
+            localStorage.setItem('isDeep', val);
+            document.body.style.backgroundColor = 'rgba(115 109 109, 0.45)';
+
         },
         isLogin(val) {
             localStorage.removeItem('isLogin')
