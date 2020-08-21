@@ -1,7 +1,6 @@
 <style>
     .pg-login-box {
         padding: 25px;
-        background: rgb(62, 62, 219, .1);
         box-sizing: border-box;
         height: 100vh;
     }
@@ -11,6 +10,10 @@
     .btn-input-s {
         margin: 25px 0;
     }
+    .center-btn {
+        display: flex;
+        margin: auto;
+    }
 </style>
 
 <template>
@@ -18,7 +21,7 @@
         <center class="tip-text">为方便及时推送消息，请留下你常用的邮箱吧</center>
         <el-input v-model="email" placeholder="在此输入邮箱" class="btn-input-s"></el-input>
         <el-input v-model="name" placeholder="在此输入你的昵称" class="btn-input-s"></el-input>
-        <el-button type="success" @click="submit">提交</el-button>
+        <el-button class="center-btn" type="success" @click="submit">提交</el-button>
     </div>
 </template>
 

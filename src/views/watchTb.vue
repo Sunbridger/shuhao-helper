@@ -5,6 +5,9 @@
     .el-message {
         margin-top: 30px;
     }
+    .el-input {
+        width: 85%;
+    }
     .flex-box {
         display: flex;
         justify-content: space-around;
@@ -19,13 +22,22 @@
     .mt12 {
         margin-top: 12px;
     }
+    .info {
+        color: #909399;
+    }
+    .flex-ac {
+        align-items: center;
+    }
 </style>
 <template>
     <swiper-slide>
         <div class="pg-watchTb">
             <div>
-                <el-input clearable v-model="url" placeholder="请输入商品链接"></el-input>
-                <div class="flex mt12">
+                <div class="flex mt12 flex-ac">
+                    <el-input clearable v-model="url" placeholder="请输入商品链接"></el-input>
+                    <div class="info el-icon-s-promotion" @click="showHelp">帮助</div>
+                </div>
+                <div class="flex mt12 flex-ac">
                     <el-input clearable v-model="verification" placeholder="请输入验证码"></el-input>
                     <div v-if="svgHtml" v-html="svgHtml"></div>
                 </div>
@@ -70,6 +82,13 @@ export default {
         }
     },
     methods: {
+        showHelp() {
+            this.$notify({
+                title: 'Tip：',
+                message: '打开京东App，选中喜欢的商品，点击分享-复制链接，即可',
+                duration: 5000
+            });
+        },
         submit() {
             if (this.verification) {
                 if (this.verification.toLocaleLowerCase() !== this.text.toLocaleLowerCase()) {

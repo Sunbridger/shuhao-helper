@@ -8,7 +8,8 @@ import {
     Tabs,
     TabPane,
     Card,
-    Switch
+    Switch,
+    Notification
 } from 'element-ui'
 
 Vue.use(Button);
@@ -20,3 +21,4 @@ Vue.use(Card);
 Vue.use(TabPane);
 Vue.use(Switch);
 Vue.prototype.$message = Message;
+Vue.prototype.$notify = Notification;

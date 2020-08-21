@@ -45,13 +45,13 @@
     <div>
         <swiper :options="swiperOption" ref="mySwiper">
             <swiper-slide>
-                <watchTb />
+                <reban />
             </swiper-slide>
             <swiper-slide>
                 <taobao :sort="sort" :addItem="addItem"/>
             </swiper-slide>
             <swiper-slide>
-                <reban />
+                <watchTb />
             </swiper-slide>
             <swiper-slide>
                 <shezhi />
@@ -88,13 +88,13 @@ export default {
             activeIndex: 0,
             navTabList: [{
                 key: 0,
-                value: '收藏商品'
+                value: '微博热搜'
             }, {
                 key: 1,
                 value: '我的物品'
             }, {
                 key: 2,
-                value: '微博热搜'
+                value: '收藏商品'
             }, {
                 key: 3,
                 value: '设置'
