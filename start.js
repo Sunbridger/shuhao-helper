@@ -16,7 +16,7 @@ const compression = require('compression');
 // Configuare https
 const httpsOption = {
     key : fs.readFileSync(path.resolve(__dirname, "./2_www.sunbridger.site.key")),
-    cert: fs.readFileSync(path.resolve(__dirname, "./1_www.sunbridger.site_bundle.crt"))
+    cert: fs.readFileSync(path.resolve(__dirname, "./1_www.sunbridger.site_bundle.pem"))
 }
 // Create service
 let app = express();
