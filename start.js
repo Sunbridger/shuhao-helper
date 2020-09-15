@@ -11,6 +11,8 @@ let http = require("http");
 let https = require("https");
 let fs = require("fs");
 const path = require('path');
+const compression = require('compression');
+
 // Configuare https
 const httpsOption = {
     key : fs.readFileSync(path.resolve(__dirname, "./2_www.sunbridger.site.key")),
@@ -18,6 +20,9 @@ const httpsOption = {
 }
 // Create service
 let app = express();
+
+app.use(compression());
+
 app.use(express.static(path.resolve(__dirname, 'dist')));
 http.createServer(app).listen(80);
 https.createServer(httpsOption, app).listen(443);
