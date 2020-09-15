@@ -1,4 +1,5 @@
 const path = (path) => require('path').resolve(__dirname, path);
+
 module.exports = {
     configureWebpack: (config) => {
         config.resolve = {
@@ -15,7 +16,6 @@ module.exports = {
             axios: 'axios',
             vue: 'Vue',
             'vue-router': 'VueRouter',
-            'element-ui': 'element-ui',
             _: 'lodash'
         };
     }
