@@ -15,6 +15,7 @@ module.exports = {
             axios: 'axios',
             vue: 'Vue',
             'vue-router': 'VueRouter',
+            'element-ui': 'element-ui',
             _: 'lodash'
         };
     }
