@@ -10,10 +10,11 @@ let express = require("express");
 let http = require("http");
 let https = require("https");
 let fs = require("fs");
+const path = require('path');
 // Configuare https
 const httpsOption = {
-    key : fs.readFileSync("./2_www.sunbridger.site.key"),
-    cert: fs.readFileSync("./1_www.sunbridger.site_bundle.crt")
+    key : fs.readFileSync(path.resolve(__dirname, "./2_www.sunbridger.site.key")),
+    cert: fs.readFileSync(path.resolve(__dirname, "./1_www.sunbridger.site_bundle.crt"))
 }
 // Create service
 let app = express();
