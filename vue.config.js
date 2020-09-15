@@ -17,5 +17,11 @@ module.exports = {
             'vue-router': 'VueRouter',
             _: 'lodash'
         };
+        config.optimization = {
+            splitChunks: {
+                maxInitialRequests: 6,
+                maxSize: 800000
+            }
+        };
     }
 }
