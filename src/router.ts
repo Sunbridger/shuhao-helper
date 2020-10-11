@@ -12,6 +12,7 @@ Vue.use(Router);
 
 const router = new Router({
     mode: 'history',
+    base: '/docs/',
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
