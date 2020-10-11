@@ -12,7 +12,7 @@ Vue.use(Router);
 
 const router = new Router({
     mode: 'history',
-    base: '/docs/',
+    base: '/shuhao-helper/',
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition;
