@@ -27,5 +27,6 @@
     "compression": "^1.7.4",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "homepage": "https://Sunbridger.github.io/shuhao-helper"
 }
